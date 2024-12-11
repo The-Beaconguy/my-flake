@@ -2,8 +2,7 @@
   description = "ZaneyOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixvim.url = "github:dc-tec/nixvim";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
     home-manager.url = "github:nix-community/home-manager/master"; 
     hyprland.url = "github:hyprwm/Hyprland";
      hyprland-plugins = {

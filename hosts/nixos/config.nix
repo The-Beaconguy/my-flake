@@ -250,6 +250,7 @@ in
     eza
     git
     gparted
+    lazygit
     cmatrix
     pipes
     lolcat

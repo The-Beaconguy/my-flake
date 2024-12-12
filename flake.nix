@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
-    home-manager.url = "github:nix-community/home-manager/master"; 
+    home-manager.url = "github:nix-community/home-manager/master";
     hyprland.url = "github:hyprwm/Hyprland";
-     hyprland-plugins = {
+      hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };

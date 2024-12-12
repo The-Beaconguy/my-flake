@@ -8,7 +8,10 @@ in
   environment.systemPackages = with pkgs; [
      ] ++ (if (programoptions.discord-client == "vesktop")
      then [pkgs.vesktop]
-     else[]);
+     else
+      (if (programoptions.discord-client ==webcord)
+        then [ pkgs.webcord-vencord] else []));
+
 
 }
 

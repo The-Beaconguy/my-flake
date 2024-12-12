@@ -15,6 +15,7 @@ in
     ./users.nix
     ../../modules/discord.nix
     ../../modules/nixvimconf.nix
+    ../../modules/editors/code-editors.nix
     ../../modules/games.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
@@ -243,7 +244,6 @@ in
 
   environment.systemPackages = with pkgs; [
     vim
-    tgpt
     librewolf
     wget
     killall 
@@ -408,10 +408,7 @@ in
     disabledDefaultBackends = [ "escl" ];
   };
 
-  # Extra Logitech Support
-  hardware.logitech.wireless.enable = false;
-  hardware.logitech.wireless.enableGraphical = false;
-
+  
   # Bluetooth Support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

@@ -3,6 +3,7 @@
 #inputs,
 #pkgs,
   username,
+  programoptions,
   host,
   config,
   ...
@@ -14,7 +15,7 @@ let
     
    
     extraMonitorSettings
-    programoptions
+    
     ;
 in
 with lib;
@@ -113,6 +114,13 @@ with lib;
           }
           decoration {
             rounding = 8
+            shadow {
+            enabled = true
+            range = 6
+            render_power = 1
+            #color = $color12
+            color_inactive = 0x50000000
+            }
             blur {
                 enabled = true
                 size = 5

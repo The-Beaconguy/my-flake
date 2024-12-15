@@ -2,27 +2,16 @@
   config,
   pkgs,
   host,
+  programoptions,
   username,
   options,
   ...
 }:
-let
-  inherit (import ./variables.nix)  programoptions;
-in
 {
   imports = [
     ./hardware.nix
-    ./users.nix
-    ../../modules/discord.nix
-    ../../modules/nixvimconf.nix
-    ../../modules/editors/code-editors.nix
-    ../../modules/games.nix
-    ../../modules/amd-drivers.nix
-    ../../modules/nvidia-drivers.nix
-    ../../modules/nvidia-prime-drivers.nix
-    ../../modules/intel-drivers.nix
-    ../../modules/vm-guest-services.nix
-    ../../modules/local-hardware-clock.nix
+    ./users.nix  
+    ../../modules/modulesbundle.nix
   ];
 
   boot = {

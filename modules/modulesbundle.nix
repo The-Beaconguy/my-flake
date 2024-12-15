@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ...}: {
+{ lib, config, host, ...}: {
 
 
   imports = [
@@ -12,5 +12,9 @@
   ./vm-guest-services.nix
   ./local-hardware-clock.nix
  ];
+  # Conditional module toggling 
+  games.enable = host == "nixos";
+  discord.enable = host == "nixos";
+  code-editors.enable = host =="nixos";
 }
 

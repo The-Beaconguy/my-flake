@@ -1,8 +1,12 @@
-{pkgs, options, ...}:
+{pkgs, lib, config, ...}:
 
 {
- 
-     
+    options = { 
+    games.enable =
+      lib.mkEnableOption "enables games";
+  };
+    
+    config = lib.mkIf config.games.enable {     
   programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
@@ -20,6 +24,7 @@
  # Extra Logitech Support
   hardware.logitech.wireless.enable = false;
   hardware.logitech.wireless.enableGraphical = false;
+};
 }
  
 

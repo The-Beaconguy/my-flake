@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  lib,
   host,
   ...
 }:
@@ -16,6 +17,7 @@ in
   # Import Program Configurations
   imports = [
     ../../config/emoji.nix
+    #../../config/firefox/firefox.nix
     ../../config/fastfetch
     ../../config/hyprland.nix
     ../../config/neovim.nix
@@ -210,7 +212,7 @@ in
       #hide_cursor = true;
       #no_fade_in = false;
       #};
-      #background = [
+      #lib.mkprio.background = [
       #{
       #path = "/home/${username}/Pictures/Wallpapers/nix-gruv.jpg";
       #blur_passes = 3;
@@ -229,7 +231,7 @@ in
       #valign = "center";
       #}
       #];
-      #input-field = [
+      #lib.mkprio.input-field = [
       #{
       #size = "200, 50";
       #position = "0, -80";

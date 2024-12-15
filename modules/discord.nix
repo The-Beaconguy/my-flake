@@ -1,9 +1,12 @@
-{pkgs, ... }:
+{pkgs, lib, config, programoptions, ... }:
 
-let
-  inherit (import ../hosts/nixos/variables.nix)    programoptions;
-in
 {
+  options = {
+    discord.enable = 
+      lib.mkEnableOption "enables discord";
+  };
+   
+  config = lib.mkIf config.discord.enable {
 
   environment.systemPackages = with pkgs; [
      ] ++ (if (programoptions.discord-client == "vesktop")
@@ -12,7 +15,7 @@ in
       (if (programoptions.discord-client ==webcord)
         then [ pkgs.webcord-vencord] else []));
 
-
+  };
 }
 
 

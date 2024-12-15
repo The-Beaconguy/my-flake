@@ -1,9 +1,12 @@
-{pkgs, ...}:
+{pkgs, lib, config, ...}:
 
-let
-  inherit (import ../../hosts/nixos/variables.nix) programoptions;
-  in
-  {
+{ 
+  options = {
+  code-editors.enable = 
+  lib.mkEnableOption "enables code-editors";
+  };
+  config = lib.mkIf config.code-editors.enable {
+
   environment.systemPackages = with pkgs; [
   vscodium
   neovide
@@ -12,6 +15,5 @@ let
 
   #enable nvim
   programs.neovim.enable = true;
-
-
+  };
 }

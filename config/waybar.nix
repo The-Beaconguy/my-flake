@@ -1,317 +1,225 @@
-{
-  pkgs,
-  lib,
-  host,
-  username,
-  config,
-  ...
-}:
+{ config, pkgs, lib, ... }:
 
-let
-  betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-  inherit (import ../hosts/${host}/variables.nix) clock24h;
-in
-with lib;
 {
-  # Configure & Theme Waybar
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar;
-    settings = [
-      {
-        layer = "top";
-        position = "top";
-        modules-center = [
-          "hyprland/workspaces"
-          #"clock"
-        ];
-        modules-left = [
-          "custom/startmenu"
-          "hyprland/window"
-          "custom/pad"
-          "custom/pad"
-          "pulseaudio"
-          "custom/pad"
-          "cpu"
-          "custom/pad"
-          "custom/pad"
-          "memory"
-          "custom/pad"
-          "idle_inhibitor"
-          #"custom/update"
-        ];
-        modules-right = [
-          "custom/hyprbindings"
-          "custom/pad"
-          "custom/notification"
-          "custom/pad"
-          "custom/pad"
-          "custom/exit"
-          #"battery"
-          "custom/pad"
-          "disk"
-          "custom/pad"
-          "tray"
-          "clock"
-          "custom/pad"
-          #"hyprland/workspaces"
-        ];
+    systemd.enable = true;
+    style = ''
+      @import "./rose-pine.css";
 
-        "hyprland/workspaces" = {
-          format = "{name}";
-          format-icons = {
-            default = " ";
-            active = " ";
-            urgent = " ";
-          };
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-          on-scroll-down = "hyprctl dispatch workspace e-1";
-        };
-        "clock" = {
-          format = if clock24h == true then '' {:L%H:%M}'' else '' {:L%I:%M %p}'';
-          tooltip = true;
-          tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
-        };
-        "hyprland/window" = {
-          max-length = 22;
-          separate-outputs = false;
-          rewrite = {
-            "" = " 🙈 yo No Windows? ";
-          };
-        };
-        "memory" = {
-          interval = 5;
-          format = " {}%";
-          tooltip = true;
-        };
-        "custom/pad" = {
-          format = " ";
-          #interval = once;
-          tooltip = false;
-        };
-        "cpu" = {
-          interval = 5;
-          format = " {usage:2}%";
-          tooltip = true;
-        };
-        "disk" = {
-          format = " {free}";
-          tooltip = true;
-        };
-        "network" = {
-          format-icons = [
-            "󰤯"
-            "󰤟"
-            "󰤢"
-            "󰤥"
-            "󰤨"
-          ];
-          format-ethernet = " {bandwidthDownOctets}";
-          format-wifi = "{icon} {signalStrength}%";
-          format-disconnected = "󰤮";
-          tooltip = false;
-        };
-        "tray" = {
-          spacing = 12;
-        };
-        "pulseaudio" = {
-          format = "{icon} {volume}% {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
-          format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = [
-              ""
-              ""
-              ""
-            ];
-          };
-          on-click = "sleep 0.1 && pavucontrol";
-        };
-        "custom/exit" = {
-          tooltip = false;
-          format = "";
-          on-click = "sleep 0.1 && wlogout";
-        };
-        "custom/startmenu" = {
-          tooltip = false;
-          format = "";
-          # exec = "rofi -show drun";
-          on-click = "sleep 0.1 && rofi-launcher";
-        };
-        "custom/hyprbindings" = {
-          tooltip = false;
-          format = "󱕴";
-          on-click = "sleep 0.1 && list-hypr-bindings";
-        };
-        #"custom/update" = {
-        #tooltip = false;
-        # format = "";
-        # on-click = "sleep 0.1 && kitty -e nh os switch --hostname ${host} /home/${username}/zaneyos";
-        # };
-        "idle_inhibitor" = {
-          format = "{icon}";
-          format-icons = {
-            activated = "";
-            deactivated = "";
-          };
-          tooltip = "true";
-        };
-        "custom/notification" = {
-          tooltip = false;
-          format = "{icon} {}";
-          format-icons = {
-            notification = "<span foreground='red'><sup></sup></span>";
-            none = "";
-            dnd-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-none = "";
-            inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            inhibited-none = "";
-            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-inhibited-none = "";
-          };
-          return-type = "json";
-          exec-if = "which swaync-client";
-          exec = "swaync-client -swb";
-          on-click = "sleep 0.1 && task-waybar";
-          escape = true;
-        };
-        "battery" = {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          format = "{icon} {capacity}%";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "󱘖 {capacity}%";
-          format-icons = [
-            "󰁺"
-            "󰁻"
-            "󰁼"
-            "󰁽"
-            "󰁾"
-            "󰁿"
-            "󰂀"
-            "󰂁"
-            "󰂂"
-            "󰁹"
-          ];
-          on-click = "";
-          tooltip = false;
-        };
+      * {
+        border: none;
+        border-radius: 0;
+        font-family: "JetBrainsMono NFM ExtraBold";
+        font-size: 12px;
+        min-height: 0;
       }
-    ];
-    style = concatStrings [
-      ''
-        * {
-          font-family: JetBrainsMono Nerd Font Mono;
-          font-size: 16px;
-          border-radius: 0px;
-          border: none;
-          min-height: 0px;
+
+      window#waybar {
+        background: rgba(21, 18, 27, 0);
+        color: @text;
+      }
+
+      tooltip {
+        background: @base;
+        border-radius: 4px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: @overlay;
+      }
+
+      #workspaces button {
+        box-shadow: none;
+        text-shadow: none;
+        padding: 0px;
+        border-radius: 6px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-left: 0px;
+        padding-left: 3px;
+        padding-right: 3px;
+        margin-right: 0px;
+        color: @rose;
+        animation: ws_normal 20s ease-in-out 1;
+      }
+
+      #workspaces button.active {
+        background: @iris;
+        color: @highlightLow;
+        margin-left: 3px;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin-right: 3px;
+        animation: ws_active 20s ease-in-out 1;
+        transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+      }
+
+      #workspaces button:hover {
+        background: @rose;
+        color: @love;
+        animation: ws_hover 20s ease-in-out 1;
+        transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+      }
+
+      /* ... (rest of the CSS styles) ... */
+    '';
+
+    settings = {
+      "layer": "top",
+      "position": "top",
+      "mode": "dock",
+      "exclusive": true,
+      "passthrough": false,
+      "gtk-layer-shell": true,
+      "height": 32,
+      // "spacing": 4,
+      "modules-left": [
+        "clock",
+        "custom/pad",
+        "custom/notification",
+        "tray",
+        "hyprland/workspaces"
+      ],
+      "modules-center": ["hyprland/window"],
+      "modules-right": [
+        "memory",
+        "battery",
+        "custom/pad",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "custom/pad",
+        "backlight",
+        "custom/pad",
+        "custom/lock"
+      ],
+      "hyprland/window": {
+        "format": "{}",
+        "max-length": 65
+      },
+      "hyprland/workspaces": {
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1"
+      },
+      "tray": {
+        "icon-size": 18,
+        "spacing": 10
+      },
+      "clock": {
+        "format": "{:%I:%M %p}",
+        "rotate": 0,
+        "format-alt": "{:%R 󰃭 %d·%m·%y}",
+        "tooltip-format": "<span>{calendar}</span>",
+        "calendar": {
+          "mode": "month",
+          "mode-mon-col": 3,
+          "on-scroll": 1,
+          "on-click-right": "mode",
+          "format": {
+            "months": "<span color='#ffead3'><b>{}</b></span>",
+            "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+            "today": "<span color='#ff6699'><b>{}</b></span>"
+          }
+        },
+        "actions": {
+          "on-click-right": "mode",
+          "on-click-forward": "tz_up",
+          "on-click-backward": "tz_down",
+          "on-scroll-up": "shift_up",
+          "on-scroll-down": "shift_down"
         }
-        window#waybar {
-          background: rgba(0,0,0,0);
+      },
+      "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent} %",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "swayosd-client --brightness +1",
+        "on-scroll-down": "swayosd-client --brightness -1"
+      },
+      "battery": {
+        "states": {
+          "good": 95,
+          "warning": 30,
+          "critical": 20
+        },
+        "format": "{icon} {capacity} %",
+        "format-charging": " {capacity} %",
+        "format-plugged": " {capacity} %",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󱈑"]
+      },
+      "pulseaudio": {
+        "format": "{icon} {volume} %",
+        "tooltip": false,
+        "format-muted": "󰝟 ",
+        "on-click": "GSK_RENDERER=ngl pavucontrol",
+        "on-scroll-up": "swayosd-client --output-volume +1",
+        "on-scroll-down": "swayosd-client --output-volume -1",
+        "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", "", ""]
         }
-        #workspaces {
-          color: #${config.stylix.base16Scheme.base00};
-          background: #${config.stylix.base16Scheme.base01};
-          margin: 4px 4px;
-          padding: 5px 5px;
-          border-radius: 16px;
-        }
-        #workspaces button {
-          font-weight: bold;
-          padding: 0px 5px;
-          margin: 0px 3px;
-          border-radius: 16px;
-          color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
-          opacity: 0.5;
-          transition: ${betterTransition};
-        }
-        #workspaces button.active {
-          font-weight: bold;
-          padding: 0px 5px;
-          margin: 0px 3px;
-          border-radius: 16px;
-          color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
-          transition: ${betterTransition};
-          opacity: 1.0;
-          min-width: 40px;
-        }
-        #workspaces button:hover {
-          font-weight: bold;
-          border-radius: 16px;
-          color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
-          opacity: 0.8;
-          transition: ${betterTransition};
-        }
-        tooltip {
-          background: #${config.stylix.base16Scheme.base00};
-          border: 1px solid #${config.stylix.base16Scheme.base08};
-          border-radius: 12px;
-        }
-        tooltip label {
-          color: #${config.stylix.base16Scheme.base08};
-        }
-        #window, #pulseaudio, #cpu, #memory, #idle_inhibitor, #custom-update {
-          font-weight: bold;
-          margin-top: 2px;
-          border: 1.5px solid #${config.stylix.base16Scheme.base00};
-          padding: 0px 10px;
-          padding-bottom: 4px;
-          padding-top: 4px;
-          opacity: 0.9;
-          background: #${config.stylix.base16Scheme.base04};
-          color: #${config.stylix.base16Scheme.base00};
-          border-radius: 8px;
-        }
-        #custom-startmenu {
-          color: #${config.stylix.base16Scheme.base0B};
-          background: #${config.stylix.base16Scheme.base02};
-          font-size: 28px;
-          margin: 0px;
-          padding: 0px 30px 0px 15px;
-          border-radius: 0px 0px 40px 0px;
-        }
-        #custom-hyprbindings, #network, #disk,
-        #custom-notification, #tray, #custom-exit {
-          font-weight: bold;
-          background: #${config.stylix.base16Scheme.base0F};
-          color: #${config.stylix.base16Scheme.base00};
-          margin-top: 2px;
-          border: 1.5px solid #${config.stylix.base16Scheme.base00}; 
-          padding-top: 4px;
-          opacity: 0.9;
-          padding-bottom: 4px;
-          border-radius: 8px;
-          padding: 0px 10px;
-        }
-        #clock {
-          font-weight: bold;
-          color: #${config.stylix.base16Scheme.base0B}; 
-          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base02}, #${config.stylix.base16Scheme.base02});
-          margin-left: 12px;
-          opacity: 0.9;
-          margin-top: 2px;
-          border: 1.5px solid #${config.stylix.base16Scheme.base0B};
-          padding: 0px 10px;
-          padding-top: 4px;
-          padding-bottom: 4px;
-          border-radius: 8px;
-        }
-      ''
-    ];
+      },
+      "pulseaudio#microphone": {
+        "class": "microphone-widget",
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "GSK_RENDERER=ngl pavucontrol",
+        "on-scroll-up": "swayosd-client --input-volume +1",
+        "on-scroll-down": "swayosd-client --input-volume -1"
+      },
+      "memory": {
+        "states": {
+          "c": 90,
+          "h": 60,
+          "m": 30
+        },
+        "interval": 30,
+        "format": "󰾆 {used}GB",
+        "rotate": 0,
+        "format-m": "󰾅 {used}GB",
+        "format-h": "󰓅 {used}GB",
+        "format-c": " {used}GB",
+        "format-alt": "󰾆 {percentage}%",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
+      },
+      "custom/lock": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "wlogout -b 2"
+      },
+      "custom/notification": {
+        "tooltip": false,
+        "format": "{} {icon}",
+        "format-icons": {
+          "notification": "󱅫",
+          "none": "",
+          "dnd-notification": " ",
+          "dnd-none": "󰂛",
+          "inhibited-notification": " ",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": " ",
+          "dnd-inhibited-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true
+      },
+      "custom/pad": {
+        "format": " ",
+        "interval": "once",
+        "tooltip": false
+      }
+    };
   };
 }

@@ -1,14 +1,10 @@
-{inputs, config, nix-doom-emacs, doom-emacs, ...}:
-{
-  imports = [
-    nix-doom-emacs.hmModule
-  ];
-  programs.doom-emacs = {
-    enable = true;
-    doomPrivateDir = ./doom;
-    };
+{inputs, config, pkgs, ...}:
+{  
+  programs.emacs = {
+  enable = true;
+  package = pkgs.emacs29-pgtk; # pkgs.emacs-gtk better for x11
+};
   services.emacs = {
     enable = true;
   };
-  home.sessionPath = [ "${config.xdg.configHome}/emacs/bin" ];
 }

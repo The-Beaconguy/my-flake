@@ -186,6 +186,7 @@ in
         if [ -f $HOME/.bashrc-personal ]; then
           source $HOME/.bashrc-personal
         fi
+        export PATH="$HOME/.emacs.d/bin:$PATH"
       '';
       shellAliases = {
         sv = "sudo nvim";

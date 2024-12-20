@@ -5,9 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nix-doom-emacs.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+     emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
       hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -24,9 +26,8 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, nix-doom-emacs, ... }@inputs:
+    { nixpkgs, home-manager, emacs-overlay, ... }@inputs:
     let   # system settings
-      doom-emacs = nix-doom-emacs.packages.${system}.default.override;
       system = "x86_64-linux";
       host = "nixos";
       username = "mohammed";
@@ -35,7 +36,7 @@
       browser = "firefox"; # Set Default Browser (google-chrome-stable for google-chrome)
       terminal = "kitty"; # Set Default System Terminal
       filemanger = "thunar"; # Set Default filemanger
-      editor-shortcut = "kitty -e nvim"; # Open Nvim code editor
+      editor-shortcut = "kitty -e emacsclient -c -a 'neovide'"; # Open emacsclient code editor
       editor = "neovide"; # Set Default code editor
       discord-client = "vesktop"; # Set Default Discord-client
       keyboardLayout = "us,ara"; # Set Default keyboard Layout
@@ -55,6 +56,9 @@
             inherit host;
           };
           modules = [
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+            })
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
@@ -62,8 +66,6 @@
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit programoptions;
-                inherit nix-doom-emacs;
-                inherit doom-emacs;
                 inherit inputs;
                 inherit host;
               };

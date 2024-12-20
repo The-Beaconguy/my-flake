@@ -4,6 +4,7 @@
   programs.firefox = {
     enable = true;
     profiles."o9zdc1mp.default" = {
+    isDefault = true;
       bookmarks = [
         {
           name = "Dar Al Harf";
@@ -187,8 +188,8 @@
     };
   };
   home.file.".mozilla/firefox/o9zdc1mp.default/user.js".text = ''
-//
-/* You may copy+paste this file and use it as it is.
+ //
+ /* You may copy+paste this file and use it as it is.
  *
  * If you make changes to your about:config while the program is running, the
  * changes will be overwritten by the user.js when the application restarts.

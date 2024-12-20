@@ -16,7 +16,7 @@
   terminal = "kitty"; # Set Default System Terminal
   filemanger = "thunar"; # Set Default filemanger
   editor-shortcut = "kitty -e nvim"; # Open Nvim code editor
-  editor = "neovide"; # Set Default code editor
+  editor = "emacs(client)"; # Set Default code editor
   discord-client = "vesktop"; # Set Default Discord-client
   keyboardLayout = "us,ara"; # Set Default keyboard Layout
   consolekeymap = "us"; # Set Default console keymap

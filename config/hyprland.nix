@@ -88,6 +88,8 @@ with lib;
           windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
           windowrulev2 = opacity 0.9 0.9, class:^(firefox)$
           windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
+          windowrulev2 = opacity 0.9 0.9, class:^(vesktop)$
+          windowrulev2 = opacity 0.9 0.9, class:^(emacs)$  # works for emacs client as well
           gestures {
             workspace_swipe = true
             workspace_swipe_fingers = 3
@@ -146,7 +148,7 @@ with lib;
           bind = ${modifier},E,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},D,exec,${programoptions.discord-client}
-          bind = ${modifier}SHIFT,N,exec,${programoptions.editor-shortcut}
+          bind = ${modifier}SHIFT,E,exec,${programoptions.editor-shortcut}
           bind = ${modifier},O,exec,obs
           bind = ${modifier},C,exec,hyprpicker -a
           bind = ${modifier},G,exec,gimp

@@ -86,7 +86,7 @@
       };
       sizes = {
         applications = 12;
-        terminal = 17;
+        terminal = 18;
         desktop = 11;
         popups = 12;
       };
@@ -234,6 +234,7 @@
   environment.systemPackages = with pkgs; [
     vim
     librewolf
+    hyprsunset
     wget
     killall 
     eza

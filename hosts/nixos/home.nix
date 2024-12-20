@@ -18,6 +18,7 @@ in
   imports = [
     ../../config/emoji.nix
     #../../config/firefox/firefox.nix
+    ../../config/emacs/emacs.nix
     ../../config/fastfetch
     ../../config/hyprland.nix
     ../../config/neovim.nix

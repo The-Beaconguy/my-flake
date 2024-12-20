@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    nix-doom-emacs.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
       hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -22,8 +24,9 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    { nixpkgs, home-manager, nix-doom-emacs, ... }@inputs:
     let   # system settings
+      doom-emacs = nix-doom-emacs.packages.${system}.default.override;
       system = "x86_64-linux";
       host = "nixos";
       username = "mohammed";
@@ -39,6 +42,7 @@
       consolekeymap = "us"; # Set Default console keymap
 };
     in
+      
     {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem {
@@ -58,6 +62,8 @@
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit programoptions;
+                inherit nix-doom-emacs;
+                inherit doom-emacs;
                 inherit inputs;
                 inherit host;
               };

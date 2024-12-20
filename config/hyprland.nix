@@ -57,8 +57,8 @@ with lib;
           monitor=,preferred,auto,1
           ${extraMonitorSettings}
           general {
-            gaps_in = 18
-            gaps_out = 20
+            gaps_in = 22
+            gaps_out = 24
             border_size = 2
             layout = dwindle
             resize_on_border = true

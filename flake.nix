@@ -36,8 +36,8 @@
       browser = "firefox"; # Set Default Browser (google-chrome-stable for google-chrome)
       terminal = "kitty"; # Set Default System Terminal
       filemanger = "thunar"; # Set Default filemanger
-      editor-shortcut = "kitty -e emacsclient -c -a 'neovide'"; # Open emacsclient code editor
-      editor = "neovide"; # Set Default code editor
+      editor-shortcut = "emacsclient -c -a 'neovide'"; # Open emacsclient code editor
+      editor = "emacsclient"; # Set Default code editor
       discord-client = "vesktop"; # Set Default Discord-client
       keyboardLayout = "us,ara"; # Set Default keyboard Layout
       consolekeymap = "us"; # Set Default console keymap

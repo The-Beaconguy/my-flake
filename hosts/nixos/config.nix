@@ -47,7 +47,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/Persona5EquipmentAlt1.jpg; 
+    image = ../../config/wallpapers/ship-2.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";

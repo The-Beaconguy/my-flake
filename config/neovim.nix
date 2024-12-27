@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 let
   finecmdline = pkgs.vimUtils.buildVimPlugin {
     name = "fine-cmdline";
@@ -9,7 +9,7 @@ in
   programs = {
     neovim = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = lib.mkDefault false;
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;

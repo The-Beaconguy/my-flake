@@ -26,7 +26,7 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   " + W" "Launch Web Browser" "${programoptions.browser}" \
   " + E" "Launch Emoji Selector" "emopicker9000" \
   " + S" "Take Screenshot" "screenshootin" \
-  " + D" "Launch ${programoptions.discord-client}" "${programoptions.discord-client}" \
+  " + D" "Launch discord-client" "${programoptions.discord-client}" \
   " + O" "Launch OBS" "obs" \
   " + G" "Launch GIMP" "gimp" \
   " + N" "Launch New File Browser Window" "thunar" \

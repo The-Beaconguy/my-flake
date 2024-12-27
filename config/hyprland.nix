@@ -148,7 +148,7 @@ with lib;
           bind = ${modifier},E,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},D,exec,${programoptions.discord-client}
-          bind = ${modifier}SHIFT,E,exec,${programoptions.editor-shortcut}
+          bind = ${modifier}SHIFT,E,exec,emacsclient -c -a 'nvim'
           bind = ${modifier},O,exec,obs
           bind = ${modifier},C,exec,hyprpicker -a
           bind = ${modifier},G,exec,gimp

@@ -30,6 +30,7 @@
     let   # system settings
       system = "x86_64-linux";
       host = "nixos";
+      home = "home";
       username = "mohammed";
        # program options
       programoptions = {
@@ -66,6 +67,7 @@
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit programoptions;
+                inherit home;
                 inherit inputs;
                 inherit host;
               };

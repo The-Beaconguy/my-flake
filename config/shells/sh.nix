@@ -33,6 +33,19 @@ in
         export PATH="$HOME/.emacs.d/bin:$PATH"
       '';
       shellAliases = Aliases;
+      };
+    programs.zsh = {
+    enable = true;
+    #dotDir = "home/${username}/.config/zsh";
+    shellAliases = Aliases;
+    enableCompletion = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
     };
+  };
+
+
+
 
 }

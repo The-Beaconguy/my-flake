@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, username, home, ... }:
 
 {
   programs = {
@@ -66,7 +66,7 @@
               "dummy"
               "mode-switcher"
             ];
-            #background-image = mkLiteral "${~/Pictures/Wallpapers/beautifulmountainscape.jpg}";
+            #background-image = mkLiteral ''url("../wallpapers/ship-2.png", width)'';
           };
           "entry" = {
             enabled = true;

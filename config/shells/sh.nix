@@ -7,8 +7,8 @@ let
     zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
     ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
     v = "nvim";
-    vconfig = "v zaneyos/hosts/nixos/config.nix";
-    vhome = "v zaneyos/hosts/nixos/home.nix";
+    vconfig = "cd ~ && v zaneyos/hosts/nixos/config.nix";
+    vhome = "cd ~ && v zaneyos/hosts/nixos/home.nix";
     cat = "bat";
     ls = "eza --icons";
     ll = "eza -lh --icons --grid --group-directories-first";

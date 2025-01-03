@@ -30,9 +30,8 @@
     let   # system settings
       system = "x86_64-linux";
       host = "nixos";
-      home = "home";
       username = "mohammed";
-       # program options
+      # program options
       programoptions = {
       browser = "firefox"; # Set Default Browser (google-chrome-stable for google-chrome)
       terminal = "kitty"; # Set Default System Terminal
@@ -58,8 +57,8 @@
           };
           modules = [
             ({ pkgs, ... }: {
-              nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
-            })
+          nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+          })
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
@@ -67,7 +66,6 @@
               home-manager.extraSpecialArgs = {
                 inherit username;
                 inherit programoptions;
-                inherit home;
                 inherit inputs;
                 inherit host;
               };

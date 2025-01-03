@@ -38,6 +38,9 @@ with lib;
           env = XDG_CURRENT_DESKTOP, Hyprland
           env = XDG_SESSION_TYPE, wayland
           env = XDG_SESSION_DESKTOP, Hyprland
+          env = GBM_BACKEND,nvidia-drm
+          env = LIBVA_DRIVER_NAME,nvidia
+          env = __GLX_VENDOR_LIBRARY_NAME,nvidia
           env = GDK_BACKEND, wayland, x11
           env = CLUTTER_BACKEND, wayland
           env = QT_QPA_PLATFORM=wayland;xcb
@@ -50,7 +53,7 @@ with lib;
           exec-once = killall -q swww;sleep .5 && swww init
           exec-once = killall -q waybar;sleep .5 && waybar
           exec-once = killall -q swaync;sleep .5 && swaync
-          exec-once = [workspace 2 silent] firefox
+          exec-once =  [workspace 2 silent] firefox
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
           exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/ship-2.png
@@ -148,7 +151,7 @@ with lib;
           bind = ${modifier},E,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},D,exec,${programoptions.discord-client}
-          bind = ${modifier}SHIFT,E,exec,emacsclient -c -a 'nvim'
+          bind = ${modifier}SHIFT,E,exec,${programoptions.editor-shortcut}
           bind = ${modifier},O,exec,obs
           bind = ${modifier},C,exec,hyprpicker -a
           bind = ${modifier},G,exec,gimp
@@ -189,8 +192,17 @@ with lib;
           bind = ${modifier},0,workspace,10
           bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
           bind = ${modifier},SPACE,togglespecialworkspace
-          bind = ${modifier}SHIFT,1,movetoworkspace,1
+          bind = ${modifier}ALT,1,movetoworkspacesilent,1
+          bind = ${modifier}ALT,2,movetoworkspacesilent,2
+          bind = ${modifier}ALT,3,movetoworkspacesilent,3
+          bind = ${modifier}ALT,4,movetoworkspacesilent,4
+          bind = ${modifier}ALT,5,movetoworkspacesilent,5
+          bind = ${modifier}ALT,6,movetoworkspacesilent,6
+          bind = ${modifier}ALT,7,movetoworkspacesilent,7
+          bind = ${modifier}ALT,8,movetoworkspacesilent,8
+          bind = ${modifier}ALT,9,movetoworkspacesilent,9
           bind = ${modifier}SHIFT,2,movetoworkspace,2
+          bind = ${modifier}SHIFT,1,movetoworkspace,1
           bind = ${modifier}SHIFT,3,movetoworkspace,3
           bind = ${modifier}SHIFT,4,movetoworkspace,4
           bind = ${modifier}SHIFT,5,movetoworkspace,5

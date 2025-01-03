@@ -47,7 +47,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/ship-2.png;
+    image = ../../config/wallpapers/6t1nxe07dm0d1.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
@@ -233,9 +233,10 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    librewolf
+    librewolf 
     hyprsunset
-    wget
+    wget    
+    libreoffice-qt6-fresh
     killall 
     eza
     git

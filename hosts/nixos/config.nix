@@ -6,11 +6,10 @@
   username,
   options,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware.nix
-    ./users.nix  
+    ./users.nix
     ../../modules/modulesbundle.nix
   ];
 
@@ -18,8 +17,8 @@
     # Kernel
     kernelPackages = pkgs.linuxPackages_zen;
     # This is for OBS Virtual Cam Support
-    kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    kernelModules = ["v4l2loopback"];
+    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
     # Needed For Some Steam Games
     kernel.sysctl = {
       "vm.max_map_count" = 2147483642;
@@ -93,27 +92,25 @@
     };
   };
 
-  # Extra Module Options Gpu 
+  # Extra Module Options Gpu
   drivers.amdgpu.enable = false;
-  drivers.nvidia.enable = true; 
+  drivers.nvidia.enable = true;
   drivers.intel.enable = false;
-    drivers.nvidia-prime = {
+  drivers.nvidia-prime = {
     enable = false;
     intelBusID = "";
     nvidiaBusID = "";
   };
-    vm.guest-services.enable = false;
+  vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
-  
 
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = host;
-  networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
+  networking.timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
 
-  # Set your time zone. 
+  # Set your time zone.
   time.timeZone = "Asia/Riyadh";
-  
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -220,12 +217,13 @@
     };
   };
 
-  
-  nixpkgs = {
-    #config.allowBroken = true;
-  config.allowUnfree = true;
+  nixpkgs.config = {
+    #allowBroken = true;
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "python3.12-patool-2.4.0"
+    ];
   };
-  
 
   users = {
     mutableUsers = true;
@@ -233,11 +231,11 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    librewolf 
+    librewolf
     hyprsunset
-    wget    
+    wget
     libreoffice-qt6-fresh
-    killall 
+    killall
     eza
     git
     gparted
@@ -388,18 +386,17 @@
     nfs.server.enable = false;
   };
   systemd.services.flatpak-repo = {
-    path = [ pkgs.flatpak ];
+    path = [pkgs.flatpak];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
   hardware.sane = {
     enable = true;
-    extraBackends = [ pkgs.sane-airscan ];
-    disabledDefaultBackends = [ "escl" ];
+    extraBackends = [pkgs.sane-airscan];
+    disabledDefaultBackends = ["escl"];
   };
 
-  
   # Bluetooth Support
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -441,8 +438,8 @@
         "nix-command"
         "flakes"
       ];
-      substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
     gc = {
       automatic = true;

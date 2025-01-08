@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+    pyprland.url = "github:hyprland-community/pyprland";
      emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +16,7 @@
       inputs.hyprland.follows = "hyprland";
     };
     stylix.url = "github:danth/stylix";
+    nvf.url = "github:notashelf/nvf";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
       flake = false;
@@ -26,7 +28,7 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, emacs-overlay, ... }@inputs:
+    { nixpkgs, home-manager, emacs-overlay, pyprland, nvf,  ... }@inputs:
     let   # system settings
       system = "x86_64-linux";
       host = "nixos";
@@ -58,10 +60,12 @@
           modules = [
             ({ pkgs, ... }: {
           nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+          environment.systemPackages = [ pyprland.packages."x86_64-linux".pyprland ];
           })
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
+            nvf.nixosModules.default
             {
               home-manager.extraSpecialArgs = {
                 inherit username;

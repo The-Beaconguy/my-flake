@@ -10,6 +10,8 @@ let
     vconfig = "cd ~ && v zaneyos/hosts/nixos/config.nix";
     vhome = "cd ~ && v zaneyos/hosts/nixos/home.nix";
     cat = "bat";
+    gaa = "cd ~ && cd zaneyos && git add *";
+    ds  = "doom sync";
     ls = "eza --icons";
     ll = "eza -lh --icons --grid --group-directories-first";
     la = "eza -lah --icons --grid --group-directories-first";

@@ -51,6 +51,7 @@ with lib;
           exec-once = dbus-update-activation-environment --systemd --all
           exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
           exec-once = killall -q swww;sleep .5 && swww init
+          exec-once = pypr
           exec-once = killall -q waybar;sleep .5 && waybar
           exec-once = killall -q swaync;sleep .5 && swaync
           exec-once =  [workspace 2 silent] firefox
@@ -228,6 +229,14 @@ with lib;
           bind = ,XF86AudioPrev, exec, playerctl previous
           bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
           bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
+          # pypr keybinds
+          bind = ${modifier},A,exec,pypr toggle term && hyprctl dispatch bringactivetotop
+          bind = ${modifier},Z,exec, pypr fetch_client_menu && hyprctl dispatch bringactivetotop
+          #$scratchpad = class:^(scratchpad)$
+          #windowrulev2 = float,$scratchpad
+          #windowrulev2 = $scratchpadsize,$scratchpad
+          #windowrulev2 = workspace special silent,$scratchpad
+          #windowrulev2 = center,$scratchpad
         ''
       ];
   };

@@ -21,7 +21,9 @@ in
     ../../config/emacs/emacs.nix
     ../../config/shells/sh.nix
     ../../config/fastfetch
+    ../../config/sway/sway.nix
     ../../config/hyprland.nix
+    ../../config/river/river.nix
     ../../config/neovim.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
@@ -29,7 +31,6 @@ in
     ../../config/swaync.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
-    ../../config/fastfetch
   ];
 
   # Place Files Inside Home Directory

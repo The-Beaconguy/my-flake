@@ -4,15 +4,15 @@
   lib,
   host,
   ...
-}:
-let
+}: let
   inherit (import ./variables.nix) gitUsername gitEmail;
-in
-{
+in {
   # Home Manager Settings
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
-  home.stateVersion = "23.11";
+  home = {
+    username = "${username}";
+    homeDirectory = "/home/${username}";
+    stateVersion = "23.11";
+  };
 
   # Import Program Configurations
   imports = [
@@ -64,7 +64,7 @@ in
     userEmail = "${gitEmail}";
     extraConfig = {
       init.defaultBranch = "main";
-      };
+    };
   };
 
   # Create XDG Dirs
@@ -77,15 +77,19 @@ in
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
   };
 
   # Styling Options
-  stylix.targets.waybar.enable = false;
-  stylix.targets.rofi.enable = false;
-  stylix.targets.hyprland.enable = false;
+  stylix = {
+    targets = {
+      waybar.enable = false;
+      rofi.enable = false;
+      hyprland.enable = false;
+    };
+  };
   gtk = {
     iconTheme = {
       name = "Papirus-Dark";
@@ -104,20 +108,19 @@ in
     platformTheme.name = "gtk3";
   };
 
-
   # Scripts
   home.packages = [
-    (import ../../scripts/emopicker9000.nix { inherit pkgs; })
-    (import ../../scripts/task-waybar.nix { inherit pkgs; })
-    (import ../../scripts/squirtle.nix { inherit pkgs; })
-    (import ../../scripts/nvidia-offload.nix { inherit pkgs; })
+    (import ../../scripts/emopicker9000.nix {inherit pkgs;})
+    (import ../../scripts/task-waybar.nix {inherit pkgs;})
+    (import ../../scripts/squirtle.nix {inherit pkgs;})
+    (import ../../scripts/nvidia-offload.nix {inherit pkgs;})
     (import ../../scripts/wallsetter.nix {
       inherit pkgs;
       inherit username;
     })
-    (import ../../scripts/web-search.nix { inherit pkgs; })
-    (import ../../scripts/rofi-launcher.nix { inherit pkgs; })
-    (import ../../scripts/screenshootin.nix { inherit pkgs; })
+    (import ../../scripts/web-search.nix {inherit pkgs;})
+    (import ../../scripts/rofi-launcher.nix {inherit pkgs;})
+    (import ../../scripts/screenshootin.nix {inherit pkgs;})
     (import ../../scripts/list-hypr-bindings.nix {
       inherit pkgs;
       inherit host;
@@ -131,7 +134,7 @@ in
           after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
           lock_cmd = "hyprlock";
-          };
+        };
         listener = [
           {
             timeout = 900;
@@ -171,10 +174,10 @@ in
         inactive_tab_font_style bold
       '';
     };
-     starship = {
-            enable = true;
-            package = pkgs.starship;
-     };
+    starship = {
+      enable = true;
+      package = pkgs.starship;
+    };
     home-manager.enable = true;
     hyprlock = {
       enable = true;

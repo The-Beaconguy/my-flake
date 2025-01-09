@@ -1,6 +1,9 @@
-{pkgs, username, host, ... }:
-let
-    Aliases = {
+{
+  username,
+  host,
+  ...
+}: let
+  Aliases = {
     sv = "sudo nvim";
     fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
     fu = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
@@ -11,23 +14,23 @@ let
     vhome = "cd ~ && v zaneyos/hosts/nixos/home.nix";
     cat = "bat";
     gaa = "cd ~ && cd zaneyos && git add *";
-    ds  = "doom sync";
+    ds = "doom sync";
     ls = "eza --icons";
     ll = "eza -lh --icons --grid --group-directories-first";
     la = "eza -lah --icons --grid --group-directories-first";
     ".." = "cd ..";
-    };
-in
-{
-  programs.bash = {
+  };
+in {
+  programs = {
+    bash = {
       enable = true;
       enableCompletion = true;
       profileExtra = ''
         #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
         #  exec Hyprland
         #fi
-       '';
-       initExtra = ''
+      '';
+      initExtra = ''
         fastfetch
         if [ -f $HOME/.bashrc-personal ]; then
           source $HOME/.bashrc-personal
@@ -35,19 +38,16 @@ in
         export PATH="$HOME/.emacs.d/bin:$PATH"
       '';
       shellAliases = Aliases;
-      };
-    programs.zsh = {
-    enable = true;
-    #dotDir = "home/${username}/.config/zsh";
-    shellAliases = Aliases;
-    enableCompletion = true;
-    oh-my-zsh = {
+    };
+    zsh = {
       enable = true;
-      theme = "robbyrussell";
+      #dotDir = "home/${username}/.config/zsh";
+      shellAliases = Aliases;
+      enableCompletion = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "robbyrussell";
+      };
     };
   };
-
-
-
-
 }

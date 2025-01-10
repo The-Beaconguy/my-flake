@@ -13,6 +13,7 @@
     vconfig = "cd ~ && v zaneyos/hosts/nixos/config.nix";
     vhome = "cd ~ && v zaneyos/hosts/nixos/home.nix";
     cat = "bat";
+    lazyg = "cd ~ && cd zaneyos && lazygit";
     gaa = "cd ~ && cd zaneyos && git add *";
     ds = "doom sync";
     ls = "eza --icons";

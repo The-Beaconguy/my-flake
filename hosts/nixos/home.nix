@@ -22,7 +22,8 @@ in {
     ../../config/shells/sh.nix
     ../../config/fastfetch
     ../../config/sway/sway.nix
-    ../../config/hyprland.nix
+    ../../config/hypr/hyprland.nix
+    ../../config/hypr/pyprland.nix
     ../../config/river/river.nix
     ../../config/neovim.nix
     ../../config/rofi/rofi.nix

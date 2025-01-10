@@ -20,7 +20,6 @@
           enableExtraDiagnostics = true;
 
           nix.enable = true;
-          markdown.enable = true;
           lua.enable = true;
           rust.enable = true;
         };
@@ -44,7 +43,7 @@
           enable = true;
           name = "gruvbox";
           style = "dark";
-          transparent = false;
+          transparent = true;
         };
 
         # Essential features

@@ -47,7 +47,7 @@ in
             exec-once =  [workspace 2 silent] firefox
             exec-once = nm-applet --indicator
             exec-once = lxqt-policykit-agent
-            exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/ship-2.png
+            exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/nix-gruv.jpg
             monitor=,preferred,auto,1
             ${extraMonitorSettings}
             general {

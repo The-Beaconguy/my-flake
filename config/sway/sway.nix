@@ -14,6 +14,7 @@
       startup = [
         # Launch Firefox on start
         {command = "firefox";}
+        {command = "waybar";}
       ];
     };
   };

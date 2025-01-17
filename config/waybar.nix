@@ -64,6 +64,18 @@
           "sort-by-number" = true;
           "on-click" = "activate";
           "all-outputs" = false;
+          "format-icons" = {
+            "1" = "一";
+            "2" = "二";
+            "3" = "三";
+            "4" = "٤";
+            "5" = "٥";
+            "6" = "٦";
+            "7" = "٧";
+            "8" = "٨";
+            "9" = "٩";
+            "10" = "一٠";
+          };
         };
 
         pulseaudio = {
@@ -175,13 +187,14 @@
       #workspaces button {
         margin-top: 3px;
         margin-bottom: 3px;
+        min-height: 27px;
+        min-width: 27px;
+        font-size: 27px;
         margin-left: 0px;
         margin-right: 0px;
         border-radius: 3px;
         padding-left: 3px;
         padding: 0px;
-        box-shadow: none;
-        text-shadow: none;
         padding-right: 3px;
         background-color: @bg;
         color: @fg;
@@ -189,6 +202,9 @@
 
       #workspaces button.active {
         margin-right: 3px;
+        min-width: 27px;
+        min-height: 27px;
+        font-size: 27px;
         margin-left: 3px;
         padding-right: 8px;
         padding-left: 8px;

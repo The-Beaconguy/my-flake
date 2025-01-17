@@ -224,9 +224,6 @@
   nixpkgs.config = {
     #allowBroken = true;
     allowUnfree = true;
-    permittedInsecurePackages = [
-      "python3.12-patool-2.4.0"
-    ];
   };
 
   users = {
@@ -237,9 +234,10 @@
     vim
     librewolf
     hyprsunset
+    ungoogled-chromium
+    pfetch
     wget
     libreoffice-qt6-fresh
-    jan
     killall
     eza
     git
@@ -274,7 +272,6 @@
     ninja
     brightnessctl
     virt-viewer
-    vscodium
     swappy
     appimage-run
     networkmanagerapplet
@@ -410,7 +407,7 @@
   services.blueman.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   # Security / Polkit
   security = {

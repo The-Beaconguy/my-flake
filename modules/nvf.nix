@@ -34,16 +34,16 @@
         statusline = {
           lualine = {
             enable = true;
-            theme = "dracula";
+            theme = "moonfly";
           };
         };
 
         # Theme
         theme = {
           enable = true;
-          name = "dracula";
-          style = "dark";
-          transparent = true;
+          name = "tokyonight";
+          style = "moon";
+          transparent = false;
         };
 
         # Essential features

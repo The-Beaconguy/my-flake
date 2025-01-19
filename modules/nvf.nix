@@ -34,16 +34,16 @@
         statusline = {
           lualine = {
             enable = true;
-            theme = "moonfly";
+            theme = "gruvbox";
           };
         };
 
         # Theme
         theme = {
           enable = true;
-          name = "tokyonight";
-          style = "moon";
-          transparent = false;
+          name = "gruvbox";
+          style = "dark";
+          transparent = true;
         };
 
         # Essential features

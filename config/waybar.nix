@@ -12,6 +12,9 @@
           format = "{title}";
           max-length = 333;
           seperate-outputs = true;
+          "exec" = "playerctl metadata";
+          "exec-if" = "playerctl status";
+          "on-click" = "playerctl play-pause";
           rewrite = {
             "" = " 🙈 yo No Windows? ";
           };

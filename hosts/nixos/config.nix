@@ -46,7 +46,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/6t1nxe07dm0d1.png;
+    image = ../../config/wallpapers/nix-gruv.jpg;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";

@@ -81,6 +81,7 @@ in
             windowrulev2 = stayfocused, title:^()$,class:^(steam)$
             windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
             windowrulev2 = opacity 0.9 0.9, class:^(firefox)$
+            windowrulev2 = opacity 0.9 0.9, class:^(neovide)$
             windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
             windowrulev2 = opacity 0.9 0.9, class:^(vesktop)$
             windowrulev2 = opacity 0.9 0.9, class:^(emacs)$  # works for emacs client as well

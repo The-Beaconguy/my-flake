@@ -46,7 +46,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/nix-gruv.jpg;
+    image = ../../config/wallpapers/dock.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
@@ -285,7 +285,6 @@
     grim
     slurp
     file-roller
-    swaynotificationcenter
     imv
     mpv
     gimp

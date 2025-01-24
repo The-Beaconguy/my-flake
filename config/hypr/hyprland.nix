@@ -42,18 +42,19 @@ in
             exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
             exec-once = killall -q swww;sleep .5 && swww init
             exec-once = pypr
-            exec-once = killall -q waybar;sleep .5 && waybar
-            exec-once = killall -q swaync;sleep .5 && swaync
+            #exec-once = killall -q waybar;sleep .5 && waybar
+            #exec-once = killall -q swaync;sleep .5 && swaync
+            exec-once = hyprpanel
             exec-once =  [workspace 2 silent] firefox
             exec-once = nm-applet --indicator
             exec-once = lxqt-policykit-agent
-            exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/nix-gruv.jpg
+            exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/dock.png
             monitor=,preferred,auto,1
             ${extraMonitorSettings}
             general {
               gaps_in = 28
               gaps_out = 30
-              border_size = 2
+              border_size = 1
               layout = dwindle
               resize_on_border = true
               col.active_border = rgb(${config.stylix.base16Scheme.base08}) rgb(${config.stylix.base16Scheme.base0C}) 45deg

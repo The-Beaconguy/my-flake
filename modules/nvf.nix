@@ -48,7 +48,7 @@
 
         # Essential features
         autopairs.nvim-autopairs.enable = true;
-        autocomplete.nvim-cmp.enable = true;
+        #autocomplete.nvim-cmp.enable = true; broken
         snippets.luasnip.enable = true;
 
         # File tree

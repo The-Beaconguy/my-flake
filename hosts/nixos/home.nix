@@ -24,6 +24,7 @@ in {
     ../../config/sway/sway.nix
     ../../config/hypr/hyprland.nix
     ../../config/hypr/pyprland.nix
+    ../../config/hypr/hyprpanel.nix
     ../../config/river/river.nix
     ../../config/neovim.nix
     ../../config/rofi/rofi.nix

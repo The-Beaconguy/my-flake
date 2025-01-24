@@ -25,6 +25,7 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs = {
@@ -61,7 +62,10 @@
         };
         modules = [
           ({pkgs, ...}: {
-            nixpkgs.overlays = [inputs.emacs-overlay.overlay];
+            nixpkgs.overlays = [
+              inputs.emacs-overlay.overlay
+              inputs.hyprpanel.overlay
+            ];
             environment.systemPackages = [pyprland.packages."x86_64-linux".pyprland];
           })
           ./hosts/${host}/config.nix

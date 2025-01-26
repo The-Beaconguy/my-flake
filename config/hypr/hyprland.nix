@@ -7,10 +7,8 @@
   host,
   config,
   ...
-}: let
-  inherit (import ../../hosts/${host}/variables.nix) extraMonitorSettings;
-in
-  with lib; {
+}:   
+     with lib; {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -50,7 +48,7 @@ in
             exec-once = lxqt-policykit-agent
             exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/dock.png
             monitor=,preferred,auto,1
-            ${extraMonitorSettings}
+
             general {
               gaps_in = 28
               gaps_out = 30

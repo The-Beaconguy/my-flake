@@ -24,8 +24,10 @@
       "vm.max_map_count" = 2147483642;
     };
     # Bootloader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = false;
@@ -95,13 +97,15 @@
   };
 
   # Extra Module Options Gpu
-  drivers.amdgpu.enable = false;
-  drivers.nvidia.enable = true;
-  drivers.intel.enable = false;
-  drivers.nvidia-prime = {
-    enable = false;
-    intelBusID = "";
-    nvidiaBusID = "";
+  drivers = {
+    amdgpu.enable = false;
+    nvidia.enable = true;
+    intel.enable = false;
+    nvidia-prime = {
+      enable = false;
+      intelBusID = "";
+      nvidiaBusID = "";
+    };
   };
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;

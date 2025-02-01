@@ -10,7 +10,7 @@
     ./editors/code-editors.nix
     ./amd-drivers.nix
     ./nvidia-drivers.nix
-    #./nvf.nix
+    ./nvf.nix
     ./nvidia-prime-drivers.nix
     ./intel-drivers.nix
     ./vm-guest-services.nix

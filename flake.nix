@@ -4,9 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-    url = "github:nix-community/home-manager/master";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
     pyprland.url = "github:hyprland-community/pyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
@@ -39,7 +39,10 @@
     ...
   } @ inputs: let
     # system settings
-    system = "x86_64-linux";
+    system =
+      if host == "nixos"
+      then "x86_64-linux"
+      else "aarch64-linux";
     host = "nixos";
     username = "mohammed";
     # program options
@@ -68,7 +71,7 @@
               inputs.emacs-overlay.overlay
               inputs.hyprpanel.overlay
             ];
-            environment.systemPackages = [pyprland.packages."x86_64-linux".pyprland];
+            environment.systemPackages = [pyprland.packages."${system}".pyprland];
           })
           ./hosts/${host}/config.nix
           inputs.stylix.nixosModules.stylix

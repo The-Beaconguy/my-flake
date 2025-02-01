@@ -14,6 +14,7 @@
     vhome = "cd ~ && v zaneyos/hosts/nixos/home.nix";
     cat = "bat";
     lazyg = "cd ~ && cd zaneyos && lazygit";
+    pushgl = "cd ~ && cd zaneyos && git push gitlab main";
     gaa = "cd ~ && cd zaneyos && git add *";
     ds = "doom sync";
     ls = "eza --icons";
@@ -31,18 +32,18 @@ in {
         #  exec Hyprland
         #fi
       '';
-      initExtra = ''
-        fastfetch
+      initExtra = '' 
         if [ -f $HOME/.bashrc-personal ]; then
           source $HOME/.bashrc-personal
         fi
         export PATH="$HOME/.emacs.d/bin:$PATH"
         . ~/.config/pfetch/config.sh
+        pfetch
       '';
       shellAliases = Aliases;
     };
     zsh = {
-      enable = true;
+      enable = false;
       #dotDir = "home/${username}/.config/zsh";
       shellAliases = Aliases;
       enableCompletion = true;

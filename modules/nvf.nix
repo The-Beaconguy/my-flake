@@ -48,8 +48,12 @@
 
         # Essential features
         autopairs.nvim-autopairs.enable = true;
-        #autocomplete.nvim-cmp.enable = true; broken
+        autocomplete.nvim-cmp.enable = true;
         snippets.luasnip.enable = true;
+        options = {
+          shiftwidth = 2;
+          tabstop = 2;
+        };
 
         # File tree
         filetree = {
@@ -83,6 +87,9 @@
           borders.enable = true;
           colorizer.enable = true;
           illuminate.enable = true;
+        };
+        utility = {
+          yanky-nvim.enable = true;
         };
 
         comments = {

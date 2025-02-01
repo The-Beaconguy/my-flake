@@ -3,6 +3,7 @@
   username,
   lib,
   host,
+  programoptions,
   ...
 }: let
   inherit (import ./variables.nix) gitUsername gitEmail;
@@ -126,6 +127,7 @@ in {
     (import ../../scripts/list-hypr-bindings.nix {
       inherit pkgs;
       inherit host;
+      inherit programoptions;
     })
   ];
 

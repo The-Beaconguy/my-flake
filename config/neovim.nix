@@ -8,7 +8,7 @@ in
 {
   programs = {
     neovim = {
-      enable = true;
+      enable = false;
       defaultEditor = lib.mkDefault false;
       viAlias = true;
       vimAlias = true;

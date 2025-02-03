@@ -114,7 +114,7 @@ with lib; {
             enabled = true
             range = 6
             render_power = 1
-            #color = $color12
+            color = rgba(1a1a1aee)
             color_inactive = 0x50000000
             }
             blur {

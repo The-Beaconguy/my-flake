@@ -32,7 +32,7 @@ in {
         #  exec Hyprland
         #fi
       '';
-      initExtra = '' 
+      initExtra = ''
         if [ -f $HOME/.bashrc-personal ]; then
           source $HOME/.bashrc-personal
         fi

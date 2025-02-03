@@ -5,9 +5,7 @@
   host,
   programoptions,
   ...
-}: let
-  inherit (import ./variables.nix) gitUsername gitEmail;
-in {
+}: {
   # Home Manager Settings
   home = {
     username = "${username}";
@@ -63,8 +61,8 @@ in {
   # Install & Configure Git
   programs.git = {
     enable = true;
-    userName = "${gitUsername}";
-    userEmail = "${gitEmail}";
+    userName = "mohammedgit";
+    userEmail = "mohammedgit@gmail.com";
     extraConfig = {
       init.defaultBranch = "main";
     };

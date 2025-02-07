@@ -12,8 +12,7 @@
 
   config = lib.mkIf config.discord.enable {
     environment.systemPackages = with pkgs;
-      [
-      ]
+      []
       ++ (
         if (programoptions.discord-client == "vesktop")
         then [pkgs.vesktop]

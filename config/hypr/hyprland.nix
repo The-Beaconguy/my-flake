@@ -46,7 +46,7 @@ with lib; {
           exec-once =  [workspace 2 silent] firefox
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
-          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/dock.png
+          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/night_moon.png
           monitor=,preferred,auto,1
 
           general {
@@ -82,7 +82,7 @@ with lib; {
           windowrulev2 = opacity 0.9 0.9, class:^(firefox)$
           windowrulev2 = opacity 0.9 0.9, class:^(neovide)$
           windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
-          windowrulev2 = opacity 0.9 0.9, class:^(vesktop)$
+          windowrulev2 = opacity 0.9 0.7, class:^(vesktop)$
           windowrulev2 = opacity 0.9 0.9, class:^(emacs)$  # works for emacs client as well
           gestures {
             workspace_swipe = true

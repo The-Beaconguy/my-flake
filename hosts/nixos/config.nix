@@ -458,11 +458,13 @@
   };
 
   # Virtualization / Containers
-  virtualisation.libvirtd.enable = true;
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 
   # OpenGL

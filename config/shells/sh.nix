@@ -10,12 +10,12 @@
     zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
     ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
     v = "nvim";
-    vconfig = "cd ~ && v zaneyos/hosts/nixos/config.nix";
-    vhome = "cd ~ && v zaneyos/hosts/nixos/home.nix";
+    vconfig = "v ~/zaneyos/hosts/nixos/config.nix";
+    vhome = "v ~/zaneyos/hosts/nixos/home.nix";
     cat = "bat";
-    lazyg = "cd ~ && cd zaneyos && lazygit";
-    pushgl = "cd ~ && cd zaneyos && git push gitlab main";
-    gaa = "cd ~ && cd zaneyos && git add *";
+    lazyg = "cd ~/zaneyos && lazygit";
+    pushgl = "cd ~/zaneyos && git push gitlab main";
+    gaa = "cd ~/zaneyos && git add *";
     ds = "doom sync";
     ls = "eza --icons";
     ll = "eza -lh --icons --grid --group-directories-first";

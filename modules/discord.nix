@@ -12,7 +12,10 @@
 
   config = lib.mkIf config.discord.enable {
     environment.systemPackages = with pkgs;
-      []
+      [
+        discord-canary
+        webcord-vencord
+      ]
       ++ (
         if (programoptions.discord-client == "vesktop")
         then [pkgs.vesktop]

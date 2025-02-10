@@ -74,12 +74,14 @@ with lib; {
           windowrule = center,^(wofi)$
           windowrule = center,^(steam)$
           windowrule = float, nm-connection-editor|blueman-manager
+          windowrulev2 = float, class:(xdg-desktop-portal-gtk)
           windowrule = float, swayimg|vlc|Viewnior|pavucontrol
           windowrule = float, nwg-look|qt5ct|mpv
           windowrule = float, zoom
           windowrulev2 = stayfocused, title:^()$,class:^(steam)$
           windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
           windowrulev2 = opacity 0.9 0.9, class:^(firefox)$
+          windowrulev2 = size 70% 70%, class:^(xdg-desktop-portal-gtk)$
           windowrulev2 = opacity 0.9 0.9, class:^(neovide)$
           windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
           windowrulev2 = opacity 0.9 0.7, class:^(vesktop)$

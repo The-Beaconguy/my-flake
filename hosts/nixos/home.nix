@@ -20,11 +20,11 @@
     ../../config/emacs/emacs.nix
     ../../config/shells/sh.nix
     ../../config/fastfetch
-    ../../config/sway/sway.nix
+    #../../config/sway/sway.nix
     ../../config/hypr/hyprland.nix
     ../../config/hypr/pyprland.nix
     ../../config/hypr/hyprpanel.nix
-    ../../config/river/river.nix
+    #../../config/river/river.nix
     ../../config/neovim.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
@@ -105,8 +105,8 @@
   };
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
-    platformTheme.name = "gtk3";
+    style.name = lib.mkDefault "adwaita-dark";
+    platformTheme.name = lib.mkDefault "gtk3";
   };
 
   # Scripts

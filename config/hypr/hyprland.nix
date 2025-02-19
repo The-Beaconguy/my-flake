@@ -24,6 +24,7 @@ with lib; {
           env = NIXOS_OZONE_WL, 1
           env = NIXPKGS_ALLOW_UNFREE, 1
           env = XDG_CURRENT_DESKTOP, Hyprland
+          env = GTK_USE_PORTAL,1
           env = XDG_SESSION_TYPE, wayland
           env = XDG_SESSION_DESKTOP, Hyprland
           env = GBM_BACKEND,nvidia-drm
@@ -50,8 +51,8 @@ with lib; {
           monitor=,preferred,auto,1
 
           general {
-            gaps_in = 28
-            gaps_out = 30
+            gaps_in = 32
+            gaps_out = 34
             border_size = 1
             layout = dwindle
             resize_on_border = true

@@ -10,10 +10,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
     pyprland.url = "github:hyprland-community/pyprland";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -33,16 +29,12 @@
   outputs = {
     nixpkgs,
     home-manager,
-    emacs-overlay,
     pyprland,
     nvf,
     ...
   } @ inputs: let
     # system settings
-    system =
-      if host == "nixos"
-      then "x86_64-linux"
-      else "aarch64-linux";
+    system = "x86_64-linux";
     host = "nixos";
     username = "mohammed";
     # program options
@@ -68,7 +60,6 @@
         modules = [
           ({pkgs, ...}: {
             nixpkgs.overlays = [
-              inputs.emacs-overlay.overlay
               inputs.hyprpanel.overlay
             ];
             environment.systemPackages = [pyprland.packages."${system}".pyprland];

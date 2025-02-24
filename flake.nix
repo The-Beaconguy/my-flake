@@ -43,7 +43,7 @@
       terminal = "kitty"; # Set Default System Terminal
       filemanger = "thunar"; # Set Default filemanger
       editor = "neovide"; # set default code editor
-      discord-client = "vesktop"; # Set Default Discord-client
+      discord-client = "flatpak run dev.vencord.Vesktop"; # Set Default Discord-client
       keyboardLayout = "us,ara"; # Set Default keyboard Layout
       consolekeymap = "us"; # Set Default console keymap
     };

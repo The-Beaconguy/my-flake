@@ -190,9 +190,9 @@
       #workspaces button {
         margin-top: 3px;
         margin-bottom: 3px;
-        min-height: 27px;
-        min-width: 27px;
-        font-size: 27px;
+        min-height: 30px;
+        min-width: 30px;
+        font-size: 30px;
         margin-left: 0px;
         margin-right: 0px;
         border-radius: 3px;
@@ -272,7 +272,7 @@
         padding-right: 10px;
         border-radius: 3px;
         color: @bg;
-        background-color: @lavender;
+        background-color: @yellow;
       }
     '';
   };

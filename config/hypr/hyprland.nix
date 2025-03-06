@@ -47,7 +47,7 @@ with lib; {
           exec-once =  [workspace 2 silent] firefox
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
-          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/night_moon.png
+          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/Rainnight.jpg
           monitor=,preferred,auto,1
 
           general {

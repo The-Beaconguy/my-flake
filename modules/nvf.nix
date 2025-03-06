@@ -34,15 +34,15 @@
         statusline = {
           lualine = {
             enable = true;
-            theme = "gruvbox";
+            theme = "dracula";
           };
         };
 
         # Theme
         theme = {
           enable = true;
-          name = "gruvbox";
-          style = "dark";
+          name = "rose-pine";
+          style = "main";
           transparent = true;
         };
 

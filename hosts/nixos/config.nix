@@ -236,9 +236,10 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    cava
+    kooha
     librewolf
     hyprsunset
-    ungoogled-chromium
     pfetch
     wget
     libreoffice-qt6-fresh

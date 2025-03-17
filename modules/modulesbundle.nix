@@ -18,6 +18,6 @@
   ];
   # Conditional module toggling
   games.enable = host == "nixos";
-  discord.enable = false;
+  discord.enable = true;
   code-editors.enable = lib.mkDefault true;
 }

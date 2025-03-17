@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -34,16 +34,16 @@
         statusline = {
           lualine = {
             enable = true;
-            theme = "dracula";
+            theme = lib.mkForce "dracula";
           };
         };
 
         # Theme
         theme = {
           enable = true;
-          name = "rose-pine";
+          name = lib.mkForce "rose-pine"; # Force priority is 50
           style = "main";
-          transparent = true;
+          transparent = false;
         };
 
         # Essential features

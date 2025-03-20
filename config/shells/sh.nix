@@ -16,6 +16,7 @@
     lazyg = "cd ~/zaneyos && lazygit";
     pushgl = "cd ~/zaneyos && git push gitlab main";
     pushgh = "cd ~/zaneyos && git push github main";
+    pushall = "cd ~/zaneyos && git push gitlab main && git push github main";
     gaa = "cd ~/zaneyos && git add *";
     ds = "doom sync";
     ls = "eza --icons";

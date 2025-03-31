@@ -1,4 +1,3 @@
-# This NixOS Discord module has been deprecated as Vesktop(main discord-client) is now installed via Flatpak
 {
   pkgs,
   lib,
@@ -14,7 +13,6 @@
   config = lib.mkIf config.discord.enable {
     environment.systemPackages = with pkgs;
       [
-        legcord
       ]
       ++ (
         if (programoptions.discord-client == "vesktop")

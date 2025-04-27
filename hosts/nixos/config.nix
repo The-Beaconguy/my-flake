@@ -236,6 +236,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    tree
     cava
     kooha
     librewolf

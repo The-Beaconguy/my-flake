@@ -43,7 +43,7 @@
           enable = true;
           name = lib.mkForce "rose-pine"; # Force priority is 50
           style = "main";
-          transparent = false;
+          transparent = lib.mkForce true;
         };
 
         # Essential features

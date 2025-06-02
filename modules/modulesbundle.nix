@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./discord.nix
     ./games.nix
     ./editors/code-editors.nix
     ./amd-drivers.nix
@@ -18,6 +17,5 @@
   ];
   # Conditional module toggling
   games.enable = host == "nixos";
-  discord.enable = true;
   code-editors.enable = lib.mkDefault true;
 }

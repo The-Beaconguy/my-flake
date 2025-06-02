@@ -26,6 +26,7 @@
     ../../config/hypr/hyprpanel.nix
     #../../config/river/river.nix
     ../../config/neovim.nix
+    ../../config/vesktop.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix
     ../../config/rofi/config-long.nix
@@ -89,6 +90,7 @@
     targets = {
       firefox.enable = false;
       waybar.enable = false;
+      vesktop.enable = false;
       rofi.enable = false;
       hyprland.enable = false;
     };

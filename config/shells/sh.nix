@@ -5,6 +5,7 @@
 }: let
   Aliases = {
     sv = "sudo nvim";
+    pfetch = "~/.config/pfetch/config.sh";
     fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
     fu = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
     zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
@@ -39,7 +40,6 @@ in {
           source $HOME/.bashrc-personal
         fi
         export PATH="$HOME/.emacs.d/bin:$PATH"
-        . ~/.config/pfetch/config.sh
         pfetch
       '';
       shellAliases = Aliases;

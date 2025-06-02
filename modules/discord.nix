@@ -1,3 +1,4 @@
+# Deprecated. see /config/vesktop.nix
 {
   pkgs,
   lib,

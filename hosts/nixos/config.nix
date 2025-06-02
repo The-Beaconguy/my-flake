@@ -48,7 +48,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/Rainnight.jpg;
+    image = ../../config/wallpapers/bombastic.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";

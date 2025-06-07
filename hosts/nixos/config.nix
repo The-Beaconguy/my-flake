@@ -48,7 +48,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/bombastic.png;
+    image = ../../config/wallpapers/mountainscapedark.jpg;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
@@ -236,6 +236,8 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    ascii
+    onefetch
     fsv
     tree
     cava

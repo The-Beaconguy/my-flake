@@ -1,3 +1,5 @@
+# some code is stolen from (Ladas552)
+# https://github.com/Ladas552/Nix-Is-Unbreakable/blob/master/homeModules/vesktop/default.nix
 {host, ...}: {
   programs.vesktop = {
     enable = true;

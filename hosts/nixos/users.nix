@@ -27,13 +27,5 @@
       #};
       #};
     };
-
-    #users.users.mohammedroot = {
-    #name = "mohammedroot";
-    #group = "users";
-    #homeMode = "755";
-    #createHome = true;
-    #shell = pkgs.bash;  # or any other shell you prefer
-    # };
   };
 }

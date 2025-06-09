@@ -1,7 +1,7 @@
 {
   lib,
-  #inputs,
-  #pkgs,
+  inputs,
+  pkgs,
   username,
   programoptions,
   host,
@@ -13,9 +13,9 @@ with lib; {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    #plugins = [
-    #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-    #];
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
+    ];
     extraConfig = let
       modifier = "SUPER";
     in
@@ -44,6 +44,7 @@ with lib; {
           #exec-once = killall -q waybar;sleep .5 && waybar
           #exec-once = killall -q swaync;sleep .5 && swaync
           exec-once = hyprpanel
+          exec-once = hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"
           exec-once =  [workspace 2 silent] firefox
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
@@ -125,11 +126,7 @@ with lib; {
                 ignore_opacity = off
             }
           }
-          plugin {
-            hyprtrails {
-            }
-          }
-          dwindle {
+            dwindle {
             pseudotile = true
             preserve_split = true
           }

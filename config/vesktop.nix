@@ -9,7 +9,7 @@
       enableSplashScreen = false;
       customTitleBar = false;
       disableMinSize = true;
-      minimizeToTray = false;
+      minimizeToTray = true;
       tray = true;
       splashTheming = true;
       staticTitle = true;

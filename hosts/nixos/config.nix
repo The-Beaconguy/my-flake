@@ -48,7 +48,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/mountainscapedark.jpg;
+    image = ../../config/wallpapers/blockwavemoon.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
@@ -236,6 +236,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    nitch
     ascii
     onefetch
     fsv
@@ -327,10 +328,8 @@
     wlr.enable = false;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
     ];
     configPackages = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
   };

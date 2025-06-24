@@ -88,7 +88,7 @@
           illuminate.enable = true;
         };
         utility = {
-          yanky-nvim.enable = true;
+          yanky-nvim.enable = false;
         };
 
         comments = {

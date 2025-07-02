@@ -48,7 +48,7 @@ with lib; {
           exec-once =  [workspace 2 silent] firefox
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
-          exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/mountainscapedark.jpg
+          exec-once = swww img /home/${username}/Pictures/Wallpapers/Rainnight.jpg
           monitor=,preferred,auto,1
 
           general {
@@ -79,7 +79,7 @@ with lib; {
           #windowrule = float, zoom
           windowrulev2 = stayfocused, title:^()$,class:^(steam)$
           windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-          windowrulev2 = opacity 0.9 0.9, class:^(firefox)$
+          windowrulev2 = opacity 0.9 0.7, class:^(firefox)$
           windowrulev2 = size 70% 70%, class:^(xdg-desktop-portal-gtk)$
           windowrulev2 = opacity 0.9 0.9, class:^(neovide)$
           windowrulev2 = opacity 0.9 0.7, class:^(thunar)$

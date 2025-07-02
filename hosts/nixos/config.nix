@@ -48,7 +48,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/catppuccin-paint.jpg;
+    image = ../../config/wallpapers/catppuccin-nix-tux.png;
     # base16Scheme = {
     #   base00 = "232136";
     #   base01 = "2a273f";
@@ -270,6 +270,7 @@
     ncdu
     wl-clipboard
     pciutils
+    sqlite
     ffmpeg
     socat
     cowsay

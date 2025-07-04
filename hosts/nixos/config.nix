@@ -48,25 +48,25 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/catppuccin-nix-tux.png;
-    # base16Scheme = {
-    #   base00 = "232136";
-    #   base01 = "2a273f";
-    #   base02 = "393552";
-    #   base03 = "6e6a86";
-    #   base04 = "908caa";
-    #   base05 = "e0def4";
-    #   base06 = "e0def4";
-    #   base07 = "56526e";
-    #   base08 = "eb6f92";
-    #   base09 = "f6c177";
-    #   base0A = "ea9a97";
-    #   base0B = "3e8fb0";
-    #   base0C = "9ccfd8";
-    #   base0D = "c4a7e7";
-    #   base0E = "f6c177";
-    #   base0F = "56526e";
-    # };
+    image = ../../config/wallpapers/cities-04.png;
+    base16Scheme = {
+      base00 = "232136"; # base background
+      base01 = "2a273f"; # lighter background
+      base02 = "393552"; # selection background
+      base03 = "6e6a86"; # comments, invisibles
+      base04 = "908caa"; # dark foreground
+      base05 = "e0def4"; # default foreground
+      base06 = "e0def4"; # light foreground
+      base07 = "ffffff"; # lightest foreground
+      base08 = "eb6f92"; # red/pink
+      base09 = "f6c177"; # orange
+      base0A = "ea9a97"; # yellow/peach
+      base0B = "3e8fb0"; # green/teal
+      base0C = "9ccfd8"; # cyan/foam
+      base0D = "c4a7e7"; # blue/iris
+      base0E = "f6c177"; # magenta/gold
+      base0F = "eb6f92"; # brown/love
+    };
     polarity = "dark";
     opacity.terminal = 0.6;
     cursor = {

@@ -3,6 +3,12 @@
     enable = true;
     settings = {
       vim = {
+        presence.neocord = {
+          enable = true;
+          setupOpts = {
+            logo = "https://raw.githubusercontent.com/IogaMaster/neovim/refs/heads/main/.github/assets/nixvim-dark.webp";
+          };
+        };
         viAlias = false;
         vimAlias = true;
 

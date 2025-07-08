@@ -37,6 +37,7 @@
     system = "x86_64-linux";
     host = "nixos";
     username = "mohammed";
+    flakedir = "zaneyos";
     # program options
     programoptions = {
       browser = "firefox"; # Set Default Browser (google-chrome-stable for google-chrome)
@@ -71,6 +72,7 @@
           {
             home-manager.extraSpecialArgs = {
               inherit username;
+              inherit flakedir;
               inherit programoptions;
               inherit inputs;
               inherit host;

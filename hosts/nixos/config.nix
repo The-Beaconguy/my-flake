@@ -236,12 +236,14 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    boxes
     nitch
     ascii
     onefetch
     fsv
     tree
     cava
+    cbonsai
     kooha
     librewolf
     hyprsunset
@@ -301,6 +303,7 @@
     gimp
     pavucontrol
     tree
+    tty-clock
     neovide
     greetd.tuigreet
   ];

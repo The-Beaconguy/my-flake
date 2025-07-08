@@ -1,24 +1,27 @@
 {
   username,
+  flakedir,
   host,
   ...
 }: let
   Aliases = {
     sv = "sudo nvim";
     pfetch = "~/.config/pfetch/config.sh";
-    fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
-    fu = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
+    fr = "nh os switch --hostname ${host} /home/${username}/${flakedir}";
+    fu = "nh os switch --hostname ${host} --update /home/${username}/${flakedir}";
     zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
     ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
     v = "nvim";
-    vconfig = "v ~/zaneyos/hosts/nixos/config.nix";
-    vhome = "v ~/zaneyos/hosts/nixos/home.nix";
+    vconfig = "v ~/${flakedir}/hosts/nixos/config.nix";
+    vhome = "v ~/${flakedir}/hosts/nixos/home.nix";
+    vzc = "v ~/${flakedir}/config/";
+    vm = "v ~/${flakedir}/modules/";
     cat = "bat";
-    lazyg = "cd ~/zaneyos && lazygit";
-    pushgl = "cd ~/zaneyos && git push gitlab main";
-    pushgh = "cd ~/zaneyos && git push github main";
-    pushall = "cd ~/zaneyos && git push gitlab main && git push github main";
-    gaa = "cd ~/zaneyos && git add *";
+    lazyg = "cd ~/${flakedir} && lazygit";
+    pushgl = "cd ~/${flakedir} && git push gitlab main";
+    pushgh = "cd ~/${flakedir} && git push github main";
+    pushall = "cd ~/${flakedir} && git push gitlab main && git push github main";
+    gaa = "cd ~/${flakedir} && git add *";
     ds = "doom sync";
     ls = "eza --icons";
     ll = "eza -lh --icons --grid --group-directories-first";

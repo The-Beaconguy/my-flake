@@ -30,7 +30,7 @@
             enabled = true;
             ignoreSelf = false;
           };
-          FakeNitro.enabled = true;
+          FakeNitro.enabled = false;
           ClearURLs.enabled = true;
           callTimer.enabled = true;
           ShowHiddenThings.enabled = true;

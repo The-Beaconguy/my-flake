@@ -42,7 +42,7 @@
       mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
-    #plymouth.enable = true; #it breaks with me,making boot time very long
+    #plymouth.enable = true; takes like 3 more sec to boot
   };
 
   # Styling Options
@@ -313,7 +313,6 @@
       noto-fonts-emoji
       noto-fonts-cjk-sans
       font-awesome
-      symbola
       material-icons
       fira-code
       fira-code-symbols

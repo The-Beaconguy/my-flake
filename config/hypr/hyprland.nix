@@ -44,11 +44,10 @@ with lib; {
           #exec-once = killall -q waybar;sleep .5 && waybar
           #exec-once = killall -q swaync;sleep .5 && swaync
           exec-once = hyprpanel
-          exec-once = hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"
           exec-once =  [workspace 2 silent] firefox
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
-          exec-once = swww img /home/${username}/Pictures/Wallpapers/Rainnight.jpg
+          exec-once = swww-daemon
           monitor=,preferred,auto,1
 
           general {

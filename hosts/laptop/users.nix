@@ -2,17 +2,12 @@
   pkgs,
   username,
   ...
-}:
-
-let
-  inherit (import ./variables.nix) gitUsername;
-in
-{
+}: {
   users.users = {
     "${username}" = {
       homeMode = "755";
       isNormalUser = true;
-      description = "${gitUsername}";
+      description = "mohammedgit";
       extraGroups = [
         "networkmanager"
         "wheel"
@@ -24,15 +19,13 @@ in
       ignoreShellProgramCheck = true;
       packages = with pkgs; [
       ];
+      #programs.sudo = { #No need,use sudo -E "PROGRAM NAME" this will make u open it with xwayland
+      #enable = true;
+      #envVars = {
+      #WAYLAND_DISPLAY = "wayland-0";
+      #XDG_RUNTIME_DIR = "/run/user/0";
+      #};
+      #};
     };
-    # "newuser" = {
-    #   homeMode = "755";
-    #   isNormalUser = true;
-    #   description = "New user account";
-    #   extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    #   shell = pkgs.bash;
-    #   ignoreShellProgramCheck = true;
-    #   packages = with pkgs; [];
-    # };
   };
 }

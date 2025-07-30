@@ -237,10 +237,8 @@
   environment.systemPackages = with pkgs; [
     vim
     nitch
-    onefetch
     fsv
     tree
-    cava
     kooha
     librewolf
     hyprsunset
@@ -305,7 +303,7 @@
       noto-fonts-emoji
       noto-fonts-cjk-sans
       font-awesome
-      symbola
+      #symbola
       material-icons
       fira-code
       fira-code-symbols
@@ -359,7 +357,7 @@
     openssh.enable = true;
     flatpak.enable = true;
     printing = {
-      enable = true;
+      enable = false;
       drivers = [
         pkgs.hplip
         #pkgs.hplipWithPlugin

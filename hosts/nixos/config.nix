@@ -238,8 +238,7 @@
     vim
     boxes
     nitch
-    ascii
-    onefetch
+    ufetch
     fsv
     tree
     cava

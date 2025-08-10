@@ -32,6 +32,23 @@ in {
   programs = {
     bash = {
       enable = true;
+      bashrcExtra = ''
+           ufetch() {
+         birth_install=$(stat -c %W /)
+         current=$(date +%s)
+         delta=$((current - birth_install))
+         delta_days=$((delta / 86400))
+
+        command ufetch | awk -v days="$delta_days" '
+          /KERNEL:/ {
+            print
+            printf "                    \033[1;35mINSTALL AGE:\033[0m %s days\n", days
+            next
+          }
+          { print }
+         '
+        }
+      '';
       enableCompletion = true;
       profileExtra = ''
         #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
@@ -43,7 +60,6 @@ in {
           source $HOME/.bashrc-personal
         fi
         export PATH="$HOME/.emacs.d/bin:$PATH"
-        pfetch
       '';
       shellAliases = Aliases;
     };

@@ -24,9 +24,16 @@
           enableTreesitter = true;
           enableExtraDiagnostics = true;
 
-          nix.enable = true;
+          nix = {
+            enable = true;
+            lsp.enable = true;
+          };
           lua.enable = true;
           rust.enable = true;
+          clang = {
+            enable = true;
+            lsp.enable = true;
+          };
         };
 
         visuals = {

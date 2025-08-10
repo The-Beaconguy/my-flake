@@ -9,7 +9,6 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     pyprland.url = "github:hyprland-community/pyprland";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -61,7 +60,6 @@
         modules = [
           ({pkgs, ...}: {
             nixpkgs.overlays = [
-              inputs.hyprpanel.overlay
             ];
             environment.systemPackages = [pyprland.packages."${system}".pyprland];
           })

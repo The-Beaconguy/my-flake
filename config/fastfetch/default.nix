@@ -30,14 +30,17 @@
         {
           type = "cpu";
           key = "│  ";
+          keyColor = "31";
         }
         {
           type = "gpu";
           key = "│ 󰍛 ";
+          keyColor = "31";
         }
         {
           type = "memory";
           key = "│ 󰑭 ";
+          keyColor = "31";
         }
         {
           type = "custom";
@@ -51,31 +54,38 @@
         {
           type = "custom";
           format = " OS -> Nixos";
+          keyColor = "31";
         }
         {
           type = "kernel";
           key = "│ ├ ";
+          keyColor = "31";
         }
         {
           type = "packages";
           key = "│ ├󰏖 ";
+          keyColor = "31";
         }
         {
           type = "shell";
           key = "└ └ ";
+          keyColor = "31";
         }
         "break"
         {
           type = "wm";
           key = " WM";
+          keyColor = "32";
         }
         {
           type = "wmtheme";
           key = "│ ├󰉼 ";
+          keyColor = "32";
         }
         {
           type = "terminal";
           key = "└ └ ";
+          keyColor = "32";
         }
         {
           type = "custom";
@@ -89,6 +99,7 @@
         {
           type = "command";
           key = "│  ";
+          keyColor = "33";
           text =
             #bash
             ''
@@ -102,6 +113,7 @@
         {
           type = "uptime";
           key = "│  ";
+          keyColor = "33";
         }
         {
           type = "custom";

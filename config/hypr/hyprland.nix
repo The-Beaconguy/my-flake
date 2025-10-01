@@ -13,9 +13,6 @@ with lib; {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-    ];
     extraConfig = let
       modifier = "SUPER";
     in
@@ -84,10 +81,7 @@ with lib; {
           windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
           windowrulev2 = opacity 0.9 0.7, class:^(vesktop)$
           windowrulev2 = opacity 0.9 0.9, class:^(emacs)$  # works for emacs client as well
-          gestures {
-            workspace_swipe = true
-            workspace_swipe_fingers = 3
-          }
+
           misc {
             initial_workspace_tracking = 0
             disable_hyprland_logo = true

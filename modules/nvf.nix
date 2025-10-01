@@ -28,6 +28,13 @@
             enable = true;
             lsp.enable = true;
           };
+          python = {
+            enable = true;
+            dap.enable = true;
+            format.enable = true;
+            lsp.enable = true;
+            lsp.server = "pyright";
+          };
           lua.enable = true;
           rust.enable = true;
           clang = {
@@ -99,9 +106,12 @@
           borders.enable = true;
           colorizer.enable = true;
           illuminate.enable = true;
+          noice.enable = true;
+          fastaction.enable = true;
         };
         utility = {
           yanky-nvim.enable = false;
+          icon-picker.enable = true;
         };
 
         comments = {

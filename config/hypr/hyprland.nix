@@ -14,7 +14,7 @@ with lib; {
     xwayland.enable = true;
     systemd.enable = true;
     extraConfig = let
-      modifier = "SUPER";
+      modifier = "CAPS";
     in
       concatStrings [
         ''
@@ -58,7 +58,7 @@ with lib; {
           }
           input {
             kb_layout = ${programoptions.keyboardLayout}
-            kb_options = grp:alt_shift_toggle,super
+            kb_options = grp:alt_shift_toggle,CAPS
             follow_mouse = 1
             touchpad {
               natural_scroll = true

@@ -63,10 +63,10 @@
   # Install & Configure Git
   programs.git = {
     enable = true;
-    userName = "mohammedgit";
-    userEmail = "mohammedgit@gmail.com";
-    extraConfig = {
-      init.defaultBranch = "main";
+    settings = {
+      user.name = "Mohammedgit";
+      user.email = "mohammedgit@gmail.com";
+      init.defaultbranch = "main";
     };
   };
 

@@ -19,7 +19,7 @@
         "menus.clock.time.hideSeconds": false,
         "bar.autoHide": "never",
         "theme.bar.layer": "top",
-        "theme.matugen": true,
+        "theme.matugen": false,
         "theme.bar.menus.menu.notifications.scrollbar.color": "#c4a7e7",
         "theme.bar.menus.menu.notifications.pager.label": "#56526e",
         "theme.bar.menus.menu.notifications.pager.button": "#c4a7e7",

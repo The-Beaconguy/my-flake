@@ -33,7 +33,7 @@
             dap.enable = true;
             format.enable = true;
             lsp.enable = true;
-            lsp.server = "pyright";
+            lsp.servers = ["pyright"];
           };
           lua.enable = true;
           rust.enable = true;

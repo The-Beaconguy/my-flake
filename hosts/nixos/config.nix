@@ -220,7 +220,7 @@
 
     thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [
+      plugins = with pkgs; [
         thunar-archive-plugin
         thunar-volman
       ];
@@ -242,7 +242,6 @@
     nitch
     ufetch
     pfetch-rs
-    fsv
     tree
     cava
     cbonsai
@@ -293,7 +292,7 @@
     inxi
     playerctl
     nh
-    nixfmt-rfc-style
+    nixfmt
     libvirt
     swww
     grim

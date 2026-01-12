@@ -15,6 +15,7 @@
     };
     stylix.url = "github:danth/stylix";
     nvf.url = "github:notashelf/nvf";
+    tempus.url = "github:notashelf/tempus";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
       flake = false;
@@ -33,6 +34,7 @@
     nixpkgs,
     home-manager,
     pyprland,
+    tempus,
     nvf,
     ...
   } @ inputs: let
@@ -65,7 +67,10 @@
           ({pkgs, ...}: {
             nixpkgs.overlays = [
             ];
-            environment.systemPackages = [pyprland.packages."${system}".pyprland];
+            environment.systemPackages = [
+              pyprland.packages."${system}".pyprland
+              inputs.tempus.packages.${pkgs.stdenv.hostPlatform.system}.default
+            ];
           })
           ./hosts/${host}/config.nix
           inputs.stylix.nixosModules.stylix

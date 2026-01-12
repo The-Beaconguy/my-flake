@@ -14,7 +14,7 @@ with lib; {
     xwayland.enable = true;
     systemd.enable = true;
     extraConfig = let
-      modifier = "CAPS";
+      modifier = "SUPER";
     in
       concatStrings [
         ''

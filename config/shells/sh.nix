@@ -38,7 +38,6 @@ in {
          current=$(date +%s)
          delta=$((current - birth_install))
          delta_days=$((delta / 86400))
-
         command ufetch | awk -v days="$delta_days" '
           /KERNEL:/ {
             print
@@ -59,7 +58,7 @@ in {
         if [ -f $HOME/.bashrc-personal ]; then
           source $HOME/.bashrc-personal
         fi
-
+        microfetch
       '';
       shellAliases = Aliases;
     };

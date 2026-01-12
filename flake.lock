@@ -787,6 +787,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1764517877,
+        "narHash": "sha256-pp3uT4hHijIC8JUK5MEqeAWmParJrgBVzHLNfJDZxg4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2d293cbfa5a793b4c50d17c05ef9e385b90edf6c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -931,7 +947,8 @@
         "nur": "nur",
         "nvf": "nvf",
         "pyprland": "pyprland",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "tempus": "tempus"
       }
     },
     "stylix": {
@@ -1023,6 +1040,24 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tempus": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1764597073,
+        "narHash": "sha256-cLiPcbigoMoHRy6Q1KnBnhKRgvuOxJ44ele64SuGtIo=",
+        "owner": "notashelf",
+        "repo": "tempus",
+        "rev": "23e1a09f478204bc23da12b910395afe29795453",
+        "type": "github"
+      },
+      "original": {
+        "owner": "notashelf",
+        "repo": "tempus",
         "type": "github"
       }
     },

@@ -242,6 +242,7 @@
     nitch
     ufetch
     pfetch-rs
+    microfetch
     tree
     cava
     cbonsai
@@ -290,6 +291,7 @@
     networkmanagerapplet
     yad
     inxi
+    joplin-desktop
     playerctl
     nh
     nixfmt

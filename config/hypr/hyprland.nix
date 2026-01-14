@@ -129,6 +129,9 @@ with lib; {
           bind = ${modifier}ALT,W,exec,wallsetter
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
           bind = ${modifier},W,exec,${programoptions.browser}
+          bind =  ,code:191,exec,${programoptions.terminal} tempus 40m -n "Going" -t rainbow -f # f13
+          bind =  ,code:192,exec,brave # f14
+          bind =  ,code:193,exec,${programoptions.terminal} nvim ~/zaneyos/  #f15
           bind = ${modifier},E,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},D,exec,${programoptions.discord-client}

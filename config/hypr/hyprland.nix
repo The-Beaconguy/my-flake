@@ -40,7 +40,7 @@ with lib; {
           exec-once = pypr
           #exec-once = killall -q waybar;sleep .5 && waybar
           #exec-once = killall -q swaync;sleep .5 && swaync
-          exec-once = hyprpanel
+          exec-once = noctalia-shell
           exec-once =  [workspace 2 silent] firefox
           exec-once = nm-applet --indicator
           exec-once = lxqt-policykit-agent
@@ -129,9 +129,9 @@ with lib; {
           bind = ${modifier}ALT,W,exec,wallsetter
           bind = ${modifier}SHIFT,N,exec,swaync-client -rs
           bind = ${modifier},W,exec,${programoptions.browser}
-          bind =  ,code:191,exec,${programoptions.terminal} tempus 40m -n "Going" -t rainbow -f # f13
+          bind =  ,code:191,exec,${programoptions.terminal} tempus 40m -n "Going" # f13
           bind =  ,code:192,exec,brave # f14
-          bind =  ,code:193,exec,${programoptions.terminal} nvim ~/zaneyos/  #f15
+          bind =  ,code:193,exec,${programoptions.terminal} sh -c "nvim ~/zaneyos/; $SHELL"  #f15 ,"--hold" works on kitty but not all terminals, so i used this instead,            # should work on most of them, i think, looks bad though.
           bind = ${modifier},E,exec,emopicker9000
           bind = ${modifier},S,exec,screenshootin
           bind = ${modifier},D,exec,${programoptions.discord-client}

@@ -12,6 +12,9 @@
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
   };
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = lib.mkForce "gtk3";
+  };
 
   # Import Program Configurations
   imports = [
@@ -26,6 +29,7 @@
     ../../config/hypr/hyprpanel.nix
     #../../config/river/river.nix
     ../../config/neovim.nix
+    ../../config/obs-studio.nix
     ../../config/vesktop.nix
     ../../config/rofi/rofi.nix
     ../../config/rofi/config-emoji.nix

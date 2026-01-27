@@ -15,10 +15,15 @@
     };
     stylix.url = "github:danth/stylix";
     nvf.url = "github:notashelf/nvf";
+
     tempus.url = "github:notashelf/tempus";
     fine-cmdline = {
       url = "github:VonHeikemen/fine-cmdline.nvim";
       flake = false;
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
       url = "github:nix-community/NUR";
@@ -73,6 +78,7 @@
             ];
           })
           ./hosts/${host}/config.nix
+          ./config/noctalia/noctalia.nix
           inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default

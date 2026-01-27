@@ -2,6 +2,7 @@
   config,
   pkgs,
   host,
+  lib,
   programoptions,
   username,
   inputs,
@@ -324,6 +325,8 @@
     #NIXPKGS_ALLOW_WERROR = "1";
     ZANEYOS_VERSION = "2.2";
     ZANEYOS = "true";
+    QT_QPA_PLATFORMTHEME = lib.mkForce "gtk3"; # was qt5ct
+    QT_STYLE_OVERRIDE = "";
   };
 
   # Extra Portal Configuration

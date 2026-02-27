@@ -36,7 +36,12 @@
             lsp.servers = ["pyright"];
           };
           lua.enable = true;
-          rust.enable = true;
+          rust = {
+            enable = true;
+            lsp = {
+              enable = true;
+            };
+          };
           clang = {
             enable = true;
             lsp.enable = true;
@@ -46,6 +51,13 @@
             lsp = {
               enable = true;
               servers = ["gopls"];
+            };
+          };
+          java = {
+            enable = true;
+            lsp = {
+              enable = true;
+              servers = ["jdtls"];
             };
           };
         };

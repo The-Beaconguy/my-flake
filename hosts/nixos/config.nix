@@ -243,6 +243,7 @@
     nitch
     ufetch
     pfetch-rs
+    pywalfox-native
     microfetch
     tree
     cava
@@ -292,7 +293,6 @@
     networkmanagerapplet
     yad
     inxi
-    joplin-desktop
     playerctl
     nh
     nixfmt

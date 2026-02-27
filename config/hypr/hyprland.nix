@@ -38,6 +38,7 @@ with lib; {
           exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
           exec-once = killall -q swww;sleep .5 && swww init
           exec-once = pypr
+          exec-once = pywalfox start
           #exec-once = killall -q waybar;sleep .5 && waybar
           #exec-once = killall -q swaync;sleep .5 && swaync
           exec-once = noctalia-shell
@@ -68,20 +69,14 @@ with lib; {
             sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
             accel_profile = flat
           }
-          #windowrule = float, nm-connection-editor|blueman-manager
-          windowrulev2 = float, class:(xdg-desktop-portal-gtk)
-          #windowrule = float, swayimg|vlc|Viewnior|pavucontrol
-          #windowrule = float, nwg-look|qt5ct|mpv
-          #windowrule = float, zoom
-          windowrulev2 = stayfocused, title:^()$,class:^(steam)$
-          windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
-          windowrulev2 = opacity 0.9 0.7, class:^(firefox)$
-          windowrulev2 = size 70% 70%, class:^(xdg-desktop-portal-gtk)$
-          windowrulev2 = opacity 0.9 0.9, class:^(neovide)$
-          windowrulev2 = opacity 0.9 0.7, class:^(thunar)$
-          windowrulev2 = opacity 0.9 0.7, class:^(vesktop)$
-          windowrulev2 = opacity 0.9 0.9, class:^(emacs)$  # works for emacs client as well
-
+          windowrule = match:class xdg-desktop-portal-gtk, float true
+          windowrule = match:class steam, stay_focused on
+          windowrule = match:class steam, float true
+          windowrule = opacity 0.9 0.7, match:class firefox
+          windowrule = size 70% 70%, match:class xdg-desktop-portal-gtk
+          windowrule = opacity 0.9 0.9, match:class neovide
+          windowrule = opacity 0.9 0.7, match:class thunar
+          windowrule = opacity 0.9 0.7, match:class vesktop
           misc {
             initial_workspace_tracking = 0
             disable_hyprland_logo = true

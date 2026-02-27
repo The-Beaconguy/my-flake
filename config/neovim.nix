@@ -1,11 +1,14 @@
-{ pkgs, inputs, lib, ... }:
-let
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: let
   finecmdline = pkgs.vimUtils.buildVimPlugin {
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
-in
-{
+in {
   programs = {
     neovim = {
       enable = false;
@@ -63,7 +66,7 @@ in
         set noemoji
         nnoremap : <cmd>FineCmdline<CR>
       '';
-      extraLuaConfig = ''
+      initLua = ''
         ${builtins.readFile ./nvim/options.lua}
         ${builtins.readFile ./nvim/keymaps.lua}
         ${builtins.readFile ./nvim/plugins/alpha.lua}

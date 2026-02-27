@@ -38,6 +38,7 @@
     ../../config/swaync.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
+    ../../config/zed/zed.nix
   ];
 
   # Place Files Inside Home Directory

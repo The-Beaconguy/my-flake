@@ -13,6 +13,24 @@
     # configure options
     programs.noctalia-shell = {
       enable = true;
+      colors = lib.mkForce {
+        mPrimary = "#ea9a97";
+        mOnPrimary = "#232136";
+        mSecondary = "#9ccfd8";
+        mOnSecondary = "#232136";
+        mTertiary = "#3e8fb0";
+        mOnTertiary = "#e0def4";
+        mError = "#eb6f92";
+        mOnError = "#232136";
+        mSurface = "#232136";
+        mOnSurface = "#e0def4";
+        mSurfaceVariant = "#393552";
+        mOnSurfaceVariant = "#908caa";
+        mOutline = "#44415a";
+        mShadow = "#232136";
+        mHover = "#56526e";
+        mOnHover = "#e0def4";
+      };
       # mkForce required due to conflicting defaults (1.0 in nix-store vs 1 in noctalia.nix) im sure there is a better way.
       settings = lib.mkForce {
         appLauncher = {
@@ -40,15 +58,17 @@
         };
         bar = {
           capsuleOpacity = 1;
-          density = "comfortable";
+          density = "default";
           exclusive = true;
+          useSeparateOpacity = true;
+          backgroundOpacity = "0.8300000000000001";
           floating = false;
           marginHorizontal = 0.25;
           marginVertical = 0.25;
           monitors = [];
           outerCorners = true;
           position = "right";
-          showCapsule = true;
+          showCapsule = false;
           showOutline = false;
           transparent = false;
           widgets = {
@@ -56,8 +76,8 @@
             left = [
               {
                 colorizeDistroLogo = true;
-                colorizeSystemIcon = "";
-                customIconPath = "";
+                colorizeSystemIcon = "primary";
+                customIconPath = "none";
                 enableColorization = true;
                 icon = "arrow-badge-right-filled";
                 id = "ControlCenter";
@@ -74,16 +94,28 @@
                 showApplications = false;
                 showLabelsOnlyWhenOccupied = true;
               }
+              {
+                id = "LockKeys";
+                showCapsLock = true;
+                hideWhenOff = true;
+                showNumLock = false;
+                showScrollLock = false;
+                gfaga = false;
+              }
             ];
             right = [
               {
                 hideWhenZero = false;
                 id = "NotificationHistory";
-                showUnreadBadge = true;
+                showUnreadBadge = false;
+                iconColor = "Primary";
+                textColor = "Primary";
               }
               {
                 displayMode = "alwaysHide";
                 id = "Volume";
+                iconColor = "Primary";
+                textColor = "Primary";
               }
               {
                 deviceNativePath = "";
@@ -97,26 +129,35 @@
               {
                 displayMode = "alwaysHide";
                 id = "Microphone";
+                iconColor = "Primary";
+                textColor = "Primary";
               }
               {
                 displayMode = "forceOpen";
                 id = "KeyboardLayout";
+                iconColor = "Secondary";
+                textColor = "Secondary";
               }
               {
                 customFont = "";
                 formatHorizontal = "HH:mm ddd, MMM dd";
                 formatVertical = "HH mm - dd MM";
                 id = "Clock";
+                clockColor = "Secondary";
                 useCustomFont = false;
                 usePrimaryColor = true;
               }
               {
                 blacklist = [];
-                colorizeIcons = false;
+                colorizeIcons = true;
+                chevronColor = "Error";
                 drawerEnabled = true;
                 hidePassive = false;
                 id = "Tray";
                 pinned = [];
+              }
+              {
+                id = "plugin:catwalk";
               }
             ];
           };
@@ -152,7 +193,7 @@
           manualSunrise = "06:30";
           manualSunset = "18:30";
           matugenSchemeType = "";
-          predefinedScheme = "Rosepine";
+          predefinedScheme = "Rose-pine moon";
           schedulingMode = "off";
           useWallpaperColors = false;
         };
@@ -222,7 +263,7 @@
           colorizeIcons = false;
           deadOpacity = 0.6;
           displayMode = "auto_hide";
-          enabled = false;
+          enabled = true;
           floatingRatio = 1;
           inactiveIndicators = false;
           monitors = [];
@@ -416,7 +457,7 @@
           kitty = false;
           mango = false;
           niri = false;
-          pywalfox = false;
+          pywalfox = true;
           qt = false;
           spicetify = false;
           telegram = false;
@@ -425,6 +466,10 @@
           wezterm = false;
           yazi = false;
           zed = false;
+          activeTemplates = {
+            id = "pywalfox";
+            enabled = true;
+          };
         };
         ui = {
           bluetoothDetailsViewMode = "grid";

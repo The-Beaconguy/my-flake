@@ -12,6 +12,7 @@
         "networkmanager"
         "wheel"
         "libvirtd"
+        "input" # For evtest
         "scanner"
         "lp"
       ];

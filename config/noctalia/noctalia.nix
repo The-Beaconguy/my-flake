@@ -2,6 +2,8 @@
   inputs,
   lib,
   username,
+  programoptions,
+  flakedir,
   ...
 }: {
   home-manager.users.${username} = {
@@ -67,7 +69,7 @@
           marginVertical = 0.25;
           monitors = [];
           outerCorners = true;
-          position = "right";
+          position = "bottom";
           showCapsule = false;
           showOutline = false;
           transparent = false;
@@ -95,12 +97,36 @@
                 showLabelsOnlyWhenOccupied = true;
               }
               {
+                id = "plugin:mawaqit";
+                city = "Riyadh";
+                country = "SA";
+                method = 4;
+                showCountdown = true;
+                showNotifications = true;
+                playAzan = false;
+                azanFile = "azan1.mp3";
+                school = 0;
+                hijriDayOffset = 0;
+                weekStartDay = 0;
+              }
+              {
                 id = "LockKeys";
                 showCapsLock = true;
                 hideWhenOff = true;
                 showNumLock = false;
                 showScrollLock = false;
-                gfaga = false;
+              }
+              {
+                id = "plugin:show-keys";
+                captureEnabled = true;
+                evtestDevice = "/dev/input/event5";
+                useCustomColors = true;
+                position = "bottom";
+                marginPx = 60;
+                hideDelaySec = 2;
+                disabledScreens = [];
+                pillColor = "#9ccfd8"; # Secondary
+                pillBg = "#232136"; # Surface
               }
             ];
             right = [
@@ -108,14 +134,14 @@
                 hideWhenZero = false;
                 id = "NotificationHistory";
                 showUnreadBadge = false;
-                iconColor = "Primary";
-                textColor = "Primary";
+                #iconColor = "Primary";
+                #textColor = "Primary";
               }
               {
                 displayMode = "alwaysHide";
                 id = "Volume";
-                iconColor = "Primary";
-                textColor = "Primary";
+                #iconColor = "Primary";
+                #textColor = "Primary";
               }
               {
                 deviceNativePath = "";
@@ -129,21 +155,21 @@
               {
                 displayMode = "alwaysHide";
                 id = "Microphone";
-                iconColor = "Primary";
-                textColor = "Primary";
+                #iconColor = "Primary";
+                #textColor = "Primary";
               }
               {
                 displayMode = "forceOpen";
                 id = "KeyboardLayout";
-                iconColor = "Secondary";
-                textColor = "Secondary";
+                #iconColor = "Secondary";
+                #textColor = "Secondary";
               }
               {
                 customFont = "";
                 formatHorizontal = "HH:mm ddd, MMM dd";
                 formatVertical = "HH mm - dd MM";
                 id = "Clock";
-                clockColor = "Secondary";
+                #clockColor = "Secondary";
                 useCustomFont = false;
                 usePrimaryColor = true;
               }
@@ -158,6 +184,24 @@
               }
               {
                 id = "plugin:catwalk";
+              }
+              {
+                id = "plugin:screen-recorder";
+                hideInactive = false;
+                iconColor = "primary";
+                directory = "";
+                filenamePattern = "recording_yyyyMMdd_HHmmss";
+                frameRate = "custom";
+                customFrameRate = "170";
+                audioCodec = "opus";
+                videoCodec = "h264";
+                quality = "very_high";
+                colorRange = "limited";
+                showCursor = true;
+                copyToClipboard = false;
+                audioSource = "both";
+                videoSource = "portal";
+                resolution = "original";
               }
             ];
           };
@@ -193,7 +237,7 @@
           manualSunrise = "06:30";
           manualSunset = "18:30";
           matugenSchemeType = "";
-          predefinedScheme = "Rose-pine moon";
+          predefinedScheme = "Rose pine moon";
           schedulingMode = "off";
           useWallpaperColors = false;
         };
@@ -485,16 +529,16 @@
           wifiDetailsViewMode = "grid";
         };
         wallpaper = {
-          directory = "/home/${username}/zaneyos/config/wallpapers";
+          directory = "/home/${username}/${flakedir}/config/wallpapers";
           enableMultiMonitorDirectories = false;
-          enabled = false;
+          enabled = programoptions.wm == "niri";
           fillColor = "#000000";
           fillMode = "crop";
           hideWallpaperFilenames = false;
           monitorDirectories = [];
           overviewEnabled = false;
           panelPosition = "follow_bar";
-          randomEnabled = false;
+          randomEnabled = true;
           randomIntervalSec = 300;
           recursiveSearch = false;
           setWallpaperOnAllMonitors = true;

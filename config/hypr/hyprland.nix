@@ -10,7 +10,8 @@
 }:
 with lib; {
   wayland.windowManager.hyprland = {
-    enable = true;
+    # If true, it may break ScreenCasting in Niri. See 'https://github.com/niri-wm/niri/issues/2116'.
+    enable = programoptions.wm == "hyprland";
     xwayland.enable = true;
     systemd.enable = true;
     extraConfig = let
@@ -69,7 +70,7 @@ with lib; {
             sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
             accel_profile = flat
           }
-          windowrule = match:class xdg-desktop-portal-gtk, float true
+          #windowrule = match:class xdg-desktop-portal-gtk, float true
           windowrule = match:class steam, stay_focused on
           windowrule = match:class steam, float true
           windowrule = opacity 0.9 0.7, match:class firefox

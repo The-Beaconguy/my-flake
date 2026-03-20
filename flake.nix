@@ -57,6 +57,7 @@
       discord-client = "vesktop"; # Set Default Discord-client
       keyboardLayout = "us,ara"; # Set Default keyboard Layout
       consolekeymap = "us"; # Set Default console keymap
+      wm = "niri";
     };
   in {
     nixosConfigurations = {
@@ -65,6 +66,7 @@
           inherit system;
           inherit inputs;
           inherit programoptions;
+          inherit flakedir;
           inherit username;
           inherit host;
         };

@@ -1,10 +1,11 @@
 {
   pkgs,
   lib,
+  programoptions,
   ...
 }: {
   programs.hyprpanel = {
-    enable = true;
+    enable = programoptions.wm == "hyprland";
   };
   # This looks ugly,i hope it works at least
   home.file.".config/hyprpanel/config1.json" = {

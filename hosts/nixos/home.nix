@@ -29,6 +29,7 @@
     ../../config/hypr/hyprpanel.nix
     #../../config/river/river.nix
     ../../config/neovim.nix
+    ../../config/niriconfig.nix
     ../../config/obs-studio.nix
     ../../config/vesktop.nix
     ../../config/rofi/rofi.nix
@@ -173,7 +174,7 @@
       enable = true;
       package = pkgs.kitty;
       settings = {
-        scrollback_lines = 2000;
+        dedect_urls = true;
         wheel_scroll_min_lines = 1;
         window_padding_width = 4;
         confirm_os_window_close = 0;
@@ -185,10 +186,7 @@
         inactive_tab_font_style bold
       '';
     };
-    starship = {
-      enable = true;
-      package = pkgs.starship;
-    };
+
     home-manager.enable = true;
     hyprlock = {
       enable = false;

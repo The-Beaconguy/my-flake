@@ -13,6 +13,7 @@
     ./nvidia-prime-drivers.nix
     ./intel-drivers.nix
     ./karakeep.nix
+    ./niri.nix
     ./vm-guest-services.nix
     ./local-hardware-clock.nix
   ];

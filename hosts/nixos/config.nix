@@ -143,6 +143,7 @@
     starship = {
       enable = true;
       settings = {
+        scan_timeout = 1000;
         add_newline = false;
         buf = {
           symbol = " ";
@@ -245,6 +246,8 @@
     pfetch-rs
     pywalfox-native
     microfetch
+    gpu-screen-recorder
+    evtest
     tree
     cava
     cbonsai
@@ -281,6 +284,7 @@
     cowsay
     ripgrep
     lshw
+    xwayland-satellite
     bat
     pkg-config
     meson
@@ -330,15 +334,29 @@
   };
 
   # Extra Portal Configuration
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-    ];
-    configPackages = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
+  xdg = {
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      wlr.enable = false;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+      ];
+      config = {
+        niri = {
+          default = ["gnome;gtk"];
+          "org.freedesktop.impl.portal.ScreenCast" = ["gnome"];
+          "org.freedesktop.impl.portal.Screenshot" = ["gnome"];
+          "org.freedesktop.impl.portal.RemoteDesktop" = ["gnome"];
+        };
+        Hyprland = {
+          default = ["hyprland" "gtk"];
+          "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
+          "org.freedesktop.impl.portal.Screenshot" = ["hyprland"];
+          "org.freedesktop.impl.portal.GlobalShortcuts" = ["hyprland"];
+        };
+      };
+    };
   };
 
   # Services to start
@@ -355,7 +373,6 @@
       settings = {
         default_session = {
           user = username;
-          command = "${pkgs.greetd}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
         };
       };
     };
@@ -403,16 +420,18 @@
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
-  hardware.sane = {
-    enable = true;
-    extraBackends = [pkgs.sane-airscan];
-    disabledDefaultBackends = ["escl"];
-  };
+  hardware = {
+    sane = {
+      enable = true;
+      extraBackends = [pkgs.sane-airscan];
+      disabledDefaultBackends = ["escl"];
+    };
 
-  # Bluetooth Support
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
+    # Bluetooth Support
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
   services.blueman.enable = true;
 

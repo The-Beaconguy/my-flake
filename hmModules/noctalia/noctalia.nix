@@ -108,6 +108,12 @@
                 school = 0;
                 hijriDayOffset = 0;
                 weekStartDay = 0;
+                textColor = "secondary";
+                iconColor = "primary";
+                activeColor = "primary";
+              }
+              {
+                id = "plugin:kde-connect";
               }
               {
                 id = "LockKeys";
@@ -134,14 +140,14 @@
                 hideWhenZero = false;
                 id = "NotificationHistory";
                 showUnreadBadge = false;
-                #iconColor = "Primary";
-                #textColor = "Primary";
+                iconColor = "primary";
+                textColor = "primary";
               }
               {
                 displayMode = "alwaysHide";
                 id = "Volume";
-                #iconColor = "Primary";
-                #textColor = "Primary";
+                iconColor = "primary";
+                textColor = "primary";
               }
               {
                 deviceNativePath = "";
@@ -155,31 +161,31 @@
               {
                 displayMode = "alwaysHide";
                 id = "Microphone";
-                #iconColor = "Primary";
-                #textColor = "Primary";
+                iconColor = "primary";
+                textColor = "primary";
               }
               {
                 displayMode = "forceOpen";
                 id = "KeyboardLayout";
-                #iconColor = "Secondary";
-                #textColor = "Secondary";
+                iconColor = "secondary";
+                textColor = "secondary";
               }
               {
+                id = "Clock";
                 customFont = "";
                 formatHorizontal = "HH:mm ddd, MMM dd";
                 formatVertical = "HH mm - dd MM";
-                id = "Clock";
-                #clockColor = "Secondary";
+                clockColor = "secondary";
                 useCustomFont = false;
                 usePrimaryColor = true;
               }
               {
+                id = "Tray";
                 blacklist = [];
                 colorizeIcons = true;
-                chevronColor = "Error";
+                chevronColor = "error";
                 drawerEnabled = true;
                 hidePassive = false;
-                id = "Tray";
                 pinned = [];
               }
               {
@@ -287,17 +293,7 @@
           monitorWidgets = [
             {
               name = "DP-2";
-              widgets = [
-                {
-                  hideMode = "visible";
-                  id = "MediaPlayer";
-                  showBackground = true;
-                  showButtons = true;
-                  visualizerType = "linear";
-                  x = 100;
-                  y = 200;
-                }
-              ];
+              widgets = [];
             }
           ];
         };
@@ -383,7 +379,7 @@
           respectExpireTimeout = false;
           sounds = {
             criticalSoundFile = "";
-            enabled = false;
+            enabled = true;
             excludedApps = "discord,firefox,chrome,chromium,edge";
             lowSoundFile = "";
             normalSoundFile = "";
@@ -529,7 +525,7 @@
           wifiDetailsViewMode = "grid";
         };
         wallpaper = {
-          directory = "/home/${username}/${flakedir}/config/wallpapers";
+          directory = "/home/${username}/${flakedir}/hmModules/wallpapers";
           enableMultiMonitorDirectories = false;
           enabled = programoptions.wm == "niri";
           fillColor = "#000000";

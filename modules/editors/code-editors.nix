@@ -10,7 +10,6 @@
   };
   config = lib.mkIf config.code-editors.enable {
     environment.systemPackages = with pkgs; [
-      neovide
       vim
     ];
 

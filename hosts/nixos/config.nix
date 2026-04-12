@@ -51,7 +51,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../config/wallpapers/cities-04.png;
+    image = ../../hmModules/wallpapers/cities-04.png;
     base16Scheme = {
       base00 = "232136"; # base background
       base01 = "2a273f"; # lighter background
@@ -227,6 +227,7 @@
         thunar-volman
       ];
     };
+    nix-index-database.comma.enable = true;
   };
 
   nixpkgs.config = {
@@ -240,6 +241,10 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    countryfetch
+    asciiquarium-transparent
+    ripgrep
+    ttyd
     boxes
     nitch
     ufetch
@@ -251,6 +256,7 @@
     tree
     cava
     cbonsai
+    kdePackages.qttools # For noctalia-kde-connect
     kooha
     librewolf
     hyprsunset
@@ -501,8 +507,16 @@
   console.keyMap = "${programoptions.consolekeymap}";
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  # For KDEConnect
+  networking.firewall = rec {
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -6,7 +6,6 @@
 }: let
   Aliases = {
     sv = "sudo nvim";
-    pfetch = "~/.config/pfetch/config.sh";
     fr = "nh os switch --hostname ${host} /home/${username}/${flakedir}";
     fu = "nh os switch --hostname ${host} --update /home/${username}/${flakedir}";
     zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
@@ -20,7 +19,7 @@
     lazyg = "cd ~/${flakedir} && lazygit";
     pushgl = "cd ~/${flakedir} && git push gitlab main";
     pushgh = "cd ~/${flakedir} && git push github main";
-    pushall = "cd ~/${flakedir} && git push gitlab main && git push github main";
+    pushall = "cd ~/${flakedir} && git push gitlab main && git push github main && git push codeberg main";
     gaa = "cd ~/${flakedir} && git add *";
     ds = "doom sync";
     ls = "eza --icons";
@@ -32,28 +31,8 @@ in {
   programs = {
     bash = {
       enable = true;
-      bashrcExtra = ''
-           ufetch() {
-         birth_install=$(stat -c %W /)
-         current=$(date +%s)
-         delta=$((current - birth_install))
-         delta_days=$((delta / 86400))
-        command ufetch | awk -v days="$delta_days" '
-          /KERNEL:/ {
-            print
-            printf "                    \033[1;35mINSTALL AGE:\033[0m %s days\n", days
-            next
-          }
-          { print }
-         '
-        }
-      '';
       enableCompletion = true;
-      profileExtra = ''
-        #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        #  exec Hyprland
-        #fi
-      '';
+      profileExtra = '''';
       initExtra = ''
         if [ -f $HOME/.bashrc-personal ]; then
           source $HOME/.bashrc-personal
@@ -63,7 +42,7 @@ in {
       shellAliases = Aliases;
     };
     zsh = {
-      enable = false;
+      enable = true;
       #dotDir = "home/${username}/.config/zsh";
       shellAliases = Aliases;
       enableCompletion = true;

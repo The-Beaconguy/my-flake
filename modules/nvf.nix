@@ -11,6 +11,8 @@
         };
         viAlias = false;
         vimAlias = true;
+        lineNumberMode = "relative";
+        diagnostics.enable = true;
 
         lsp = {
           enable = true;
@@ -26,18 +28,20 @@
 
           nix = {
             enable = true;
-            lsp.enable = true;
+            lsp = {
+              enable = true;
+              servers = ["nixd"];
+            };
           };
           python = {
             enable = true;
             dap.enable = true;
-            format.enable = true;
             lsp.enable = true;
-            lsp.servers = ["pyright"];
           };
           lua.enable = true;
           rust = {
             enable = true;
+            extensions.crates-nvim.enable = true;
             lsp = {
               enable = true;
             };
@@ -50,25 +54,26 @@
             enable = true;
             lsp = {
               enable = true;
-              servers = ["gopls"];
             };
           };
           java = {
             enable = true;
             lsp = {
               enable = true;
-              servers = ["jdtls"];
             };
           };
         };
 
         visuals = {
+          nvim-scrollbar.enable = true;
           nvim-web-devicons.enable = true;
           nvim-cursorline.enable = true;
           indent-blankline.enable = true;
+          cinnamon-nvim.enable = true;
+          highlight-undo.enable = true;
+          fidget-nvim.enable = true;
         };
 
-        # Status line
         statusline = {
           lualine = {
             enable = true;
@@ -76,15 +81,13 @@
           };
         };
 
-        # Theme
         theme = {
           enable = true;
           name = lib.mkForce "rose-pine"; # Force priority is 50
-          style = "main";
+          style = "moon";
           transparent = lib.mkForce true;
         };
 
-        # Essential features
         autopairs.nvim-autopairs.enable = true;
         autocomplete.nvim-cmp.enable = true;
         snippets.luasnip.enable = true;
@@ -93,28 +96,23 @@
           tabstop = 2;
         };
 
-        # File tree
         filetree = {
           neo-tree = {
             enable = true;
           };
         };
 
-        # Tab line
         tabline = {
           nvimBufferline.enable = true;
         };
 
-        # Navigation and search
         telescope.enable = true;
 
-        # Git integration
         git = {
           enable = true;
           gitsigns.enable = true;
         };
 
-        # Terminal
         terminal = {
           toggleterm = {
             enable = true;
@@ -129,7 +127,7 @@
           fastaction.enable = true;
         };
         utility = {
-          yanky-nvim.enable = false;
+          diffview-nvim.enable = true;
           icon-picker.enable = true;
         };
 

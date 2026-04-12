@@ -18,41 +18,40 @@
 
   # Import Program Configurations
   imports = [
-    ../../config/emoji.nix
-    #../../config/firefox/firefox.nix
-    ../../config/emacs/emacs.nix
-    ../../config/shells/sh.nix
-    ../../config/fastfetch
-    #../../config/sway/sway.nix
-    ../../config/hypr/hyprland.nix
-    ../../config/hypr/pyprland.nix
-    ../../config/hypr/hyprpanel.nix
-    #../../config/river/river.nix
-    ../../config/neovim.nix
-    ../../config/niriconfig.nix
-    ../../config/obs-studio.nix
-    ../../config/vesktop.nix
-    ../../config/rofi/rofi.nix
-    ../../config/rofi/config-emoji.nix
-    ../../config/rofi/config-long.nix
-    ../../config/yazi/yazi.nix
-    ../../config/swaync.nix
-    ../../config/waybar.nix
-    ../../config/wlogout.nix
-    ../../config/zed/zed.nix
+    ../../hmModules/emoji.nix
+    ../../hmModules/emacs/emacs.nix
+    ../../hmModules/shells/sh.nix
+    ../../hmModules/fastfetch
+    ../../hmModules/hypr/hyprland.nix
+    ../../hmModules/hypr/pyprland.nix
+    ../../hmModules/hypr/hyprpanel.nix
+    ../../hmModules/neovim.nix
+    ../../hmModules/niriconfig.nix
+    ../../hmModules/obs-studio.nix
+    ../../hmModules/vesktop.nix
+    ../../hmModules/rofi/rofi.nix
+    ../../hmModules/rofi/config-emoji.nix
+    ../../hmModules/rofi/config-long.nix
+    ../../hmModules/yazi/yazi.nix
+    ../../hmModules/swaync.nix
+    ../../hmModules/neovide.nix
+    ../../hmModules/waybar.nix
+    ../../hmModules/wlogout.nix
+    ../../hmModules/zed/zed.nix
+    ../../hmModules/kdeconnect.nix
   ];
 
   # Place Files Inside Home Directory
   home.file."Pictures/Wallpapers" = {
-    source = ../../config/wallpapers;
+    source = ../../hmModules/wallpapers;
     recursive = true;
   };
   home.file.".config/wlogout/icons" = {
-    source = ../../config/wlogout;
+    source = ../../hmModules/wlogout;
     recursive = true;
   };
-  home.file.".face.icon".source = ../../config/face.jpg;
-  home.file.".config/face.jpg".source = ../../config/face.jpg;
+  home.file.".face.icon".source = ../../hmModules/face.jpg;
+  home.file.".config/face.jpg".source = ../../hmModules/face.jpg;
   home.file.".config/swappy/config".text = ''
     [Default]
     save_dir=/home/${username}/Pictures/Screenshots
@@ -69,6 +68,7 @@
   # Install & Configure Git
   programs.git = {
     enable = true;
+    signing.format = null;
     settings = {
       user.name = "Mohammedgit";
       user.email = "mohammedgit@gmail.com";
@@ -80,6 +80,7 @@
   xdg = {
     userDirs = {
       enable = true;
+      setSessionVariables = false;
       createDirectories = true;
     };
   };
@@ -109,8 +110,11 @@
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+    gtk4 = {
+      theme = null;
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
     };
   };
   qt = {

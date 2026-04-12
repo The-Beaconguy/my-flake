@@ -29,10 +29,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #firefox-addons = {
-    # url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    # inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -41,6 +41,7 @@
     pyprland,
     tempus,
     nvf,
+    nix-index-database,
     ...
   } @ inputs: let
     # system settings
@@ -80,8 +81,9 @@
             ];
           })
           ./hosts/${host}/config.nix
-          ./config/noctalia/noctalia.nix
+          ./hmModules/noctalia/noctalia.nix
           inputs.stylix.nixosModules.stylix
+          nix-index-database.nixosModules.default
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default
           {

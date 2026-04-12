@@ -89,10 +89,17 @@
         XDG_SESSION_TYPE "wayland"
         XDG_SESSION_DESKTOP "niri"
     }
+    // Noctalia shell settings
     // Set the overview wallpaper on the backdrop.
     layer-rule {
-      match namespace="^noctalia-overview*"
+      match namespace="^noctalia-wallpaper*"
       place-within-backdrop true
+    }
+    // Optionally, disable the workspace shadows in the overview.
+    overview {
+      workspace-shadow {
+        off
+      }
     }
 
     // You can configure outputs by their name, which you can find
@@ -135,6 +142,8 @@
     // Find more information on the wiki:
     // https://yalter.github.io/niri/Configuration:-Layout
     layout {
+        // Set transparent workspace background color so you see the backdrop at all times. (Noctalia setting)
+        background-color "transparent"
         // Set gaps around windows in logical pixels.
         gaps 22
 
@@ -317,7 +326,33 @@
         match title="Firefox"
         open-on-workspace "ب"
         open-maximized true
-    }
+        }
+        window-rule {
+         match app-id=r"org.kde.kdeconnect.daemon" // ID of presentation pointer overlay
+         open-floating true
+         open-fullscreen false
+         default-floating-position x=0 y=0 relative-to="top-left"
+
+         // Adjust these to your monitor's resolution
+         min-width 2560
+         min-height 1440
+
+         // Optionally customize opacity of pointer
+         // opacity 1.0
+
+         tiled-state true
+
+         focus-ring {
+           off
+         }
+         border {
+           off
+         }
+         shadow {
+           off
+         }
+         draw-border-with-background false
+         }
     // Uncomment this line to ask the clients to omit their client-side decorations if possible.
     // If the client will specifically ask for CSD, the request will be honored.
     // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
@@ -410,6 +445,9 @@
         Mod+T hotkey-overlay-title="Launch a File Manager: Thunar" { spawn "thunar"; }
         Mod+Shift+O { spawn-sh "noctalia-shell ipc call plugin:show-keys toggle"; }
         Mod+D { spawn "vesktop"; }
+        Mod+Shift+W {spawn "web-search";}
+        Mod+E {spawn "emopicker9000";}
+        Mod+F13 {spawn "brave";}
 
         // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
         // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -666,9 +704,6 @@
         // moving the mouse or pressing any other key.
         Mod+Shift+P { power-off-monitors; }
     }
-
-    include "./noctalia.kdl"
-
 
   '';
 }

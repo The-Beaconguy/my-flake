@@ -307,7 +307,7 @@
     nh
     nixfmt
     libvirt
-    swww
+    awww
     grim
     slurp
     file-roller
@@ -317,7 +317,6 @@
     pavucontrol
     tree
     tty-clock
-    neovide
   ];
 
   fonts = {

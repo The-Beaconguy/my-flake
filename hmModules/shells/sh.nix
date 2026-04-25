@@ -8,12 +8,11 @@
     sv = "sudo nvim";
     fr = "nh os switch --hostname ${host} /home/${username}/${flakedir}";
     fu = "nh os switch --hostname ${host} --update /home/${username}/${flakedir}";
-    zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
     ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
     v = "nvim";
     vconfig = "v ~/${flakedir}/hosts/nixos/config.nix";
     vhome = "v ~/${flakedir}/hosts/nixos/home.nix";
-    vzc = "v ~/${flakedir}/config/";
+    vzc = "v ~/${flakedir}/hmModules/";
     vm = "v ~/${flakedir}/modules/";
     cat = "bat";
     lazyg = "cd ~/${flakedir} && lazygit";

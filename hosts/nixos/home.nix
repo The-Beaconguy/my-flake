@@ -18,27 +18,7 @@
 
   # Import Program Configurations
   imports = [
-    ../../hmModules/emoji.nix
-    ../../hmModules/emacs/emacs.nix
-    ../../hmModules/shells/sh.nix
-    ../../hmModules/fastfetch
-    ../../hmModules/hypr/hyprland.nix
-    ../../hmModules/hypr/pyprland.nix
-    ../../hmModules/hypr/hyprpanel.nix
-    ../../hmModules/neovim.nix
-    ../../hmModules/niriconfig.nix
-    ../../hmModules/obs-studio.nix
-    ../../hmModules/vesktop.nix
-    ../../hmModules/rofi/rofi.nix
-    ../../hmModules/rofi/config-emoji.nix
-    ../../hmModules/rofi/config-long.nix
-    ../../hmModules/yazi/yazi.nix
-    ../../hmModules/swaync.nix
-    ../../hmModules/neovide.nix
-    ../../hmModules/waybar.nix
-    ../../hmModules/wlogout.nix
-    ../../hmModules/zed/zed.nix
-    ../../hmModules/kdeconnect.nix
+    ../../hmModules/hmModulebundle.nix
   ];
 
   # Place Files Inside Home Directory

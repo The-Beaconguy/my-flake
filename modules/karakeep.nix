@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   services.karakeep = {
-    enable = true;
+    enable = false;
   };
 }

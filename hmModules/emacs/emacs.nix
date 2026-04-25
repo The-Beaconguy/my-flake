@@ -1,15 +1,10 @@
-{
-  inputs,
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.emacs = {
-    enable = false;
-    package = pkgs.emacs29-pgtk; # pkgs.emacs-gtk better for x11
+    enable = true;
+    package = pkgs.emacs30-pgtk; # pkgs.emacs-gtk better for x11
   };
   services.emacs = {
-    enable = false;
+    enable = true;
     defaultEditor = false;
   };
 }

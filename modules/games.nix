@@ -18,8 +18,9 @@
     };
 
     environment.systemPackages = with pkgs; [
-      lutris
-      bottles
+      # Breaks flake update
+      # lutris
+      # bottles
     ];
     # Extra Logitech Support
     hardware.logitech.wireless = {

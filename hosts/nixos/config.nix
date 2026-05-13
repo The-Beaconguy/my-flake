@@ -241,13 +241,11 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    countryfetch
     asciiquarium-transparent
     ripgrep
     ttyd
     boxes
     nitch
-    ufetch
     pfetch-rs
     pywalfox-native
     microfetch
@@ -257,10 +255,10 @@
     cava
     cbonsai
     kdePackages.qttools # For noctalia-kde-connect
-    kooha
     librewolf
     hyprsunset
     wget
+    vis
     libreoffice-qt6-fresh
     killall
     eza

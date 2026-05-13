@@ -35,31 +35,23 @@
           };
           python = {
             enable = true;
-            dap.enable = true;
-            lsp.enable = true;
           };
           lua.enable = true;
           rust = {
             enable = true;
             extensions.crates-nvim.enable = true;
-            lsp = {
-              enable = true;
-            };
           };
           clang = {
             enable = true;
-            lsp.enable = true;
           };
           go = {
             enable = true;
-            lsp = {
-              enable = true;
-            };
           };
           java = {
             enable = true;
             lsp = {
               enable = true;
+              servers = ["jdt-language-server"];
             };
           };
         };
@@ -133,6 +125,12 @@
 
         comments = {
           comment-nvim.enable = true;
+        };
+        notes = {
+          neorg = {
+            enable = true;
+            treesitter.enable = true;
+          };
         };
       };
     };

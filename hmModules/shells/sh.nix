@@ -12,8 +12,6 @@
     v = "nvim";
     vconfig = "v ~/${flakedir}/hosts/nixos/config.nix";
     vhome = "v ~/${flakedir}/hosts/nixos/home.nix";
-    vzc = "v ~/${flakedir}/hmModules/";
-    vm = "v ~/${flakedir}/modules/";
     cat = "bat";
     lazyg = "cd ~/${flakedir} && lazygit";
     pushgl = "cd ~/${flakedir} && git push gitlab main";
@@ -45,10 +43,6 @@ in {
       #dotDir = "home/${username}/.config/zsh";
       shellAliases = Aliases;
       enableCompletion = true;
-      oh-my-zsh = {
-        enable = true;
-        theme = "robbyrussell";
-      };
     };
   };
 }

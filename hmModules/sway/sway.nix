@@ -1,13 +1,13 @@
 {...}: {
   wayland.windowManager.sway = {
-    enable = true;
+    enable = false;
     xwayland = true;
     wrapperFeatures.gtk = true;
     extraSessionCommands = ''
       export WLR_NO_HARDWARE_CURSORS=1
     '';
     extraOptions = ["--unsupported-gpu"];
-    config = rec {
+    config = {
       modifier = "Mod4";
       # Use kitty as default terminal
       terminal = "kitty";

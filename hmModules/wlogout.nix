@@ -1,8 +1,6 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   programs.wlogout = {
-    enable = true;
+    enable = false;
     layout = [
       {
         label = "shutdown";

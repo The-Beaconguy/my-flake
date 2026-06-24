@@ -4,29 +4,26 @@
   config,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.drivers.nvidia;
-in
-{
+in {
   options.drivers.nvidia = {
     enable = mkEnableOption "Enable Nvidia Drivers";
   };
 
   config = mkIf cfg.enable {
-    services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = ["nvidia"];
     hardware.nvidia = {
-      # Modesetting is required.
+      branch = "stable";
       modesetting.enable = true;
-      # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
       powerManagement.enable = false;
       # Fine-grained power management. Turns off GPU when not in use.
       # Experimental and only works on modern Nvidia GPUs (Turing or newer).
       powerManagement.finegrained = false;
-    # Whether to enable forcefully the full composition pipeline.
-    # This has been reported to reduce the performance of some OpenGL applications
-    # and may produce issues in WebGL
-    # see https://mynixos.com/nixpkgs/option/hardware.nvidia.forceFullCompositionPipeline 
+      # Whether to enable forcefully the full composition pipeline.
+      # This has been reported to reduce the performance of some OpenGL applications
+      # and may produce issues in WebGL
+      # see https://mynixos.com/nixpkgs/option/hardware.nvidia.forceFullCompositionPipeline
       forceFullCompositionPipeline = false;
       # Use the NVidia open source kernel module (not to be confused with the
       # independent third-party "nouveau" open source driver).
@@ -40,7 +37,6 @@ in
       # accessible via `nvidia-settings`.
       nvidiaSettings = true;
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
 }

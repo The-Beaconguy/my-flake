@@ -51,7 +51,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = ../../hmModules/wallpapers/cities-04.png;
+    image = ../../hmModules/wallpapers/purple-dark--arabic-letters.png;
     base16Scheme = {
       base00 = "232136"; # base background
       base01 = "2a273f"; # lighter background
@@ -244,9 +244,11 @@
     asciiquarium-transparent
     ripgrep
     ttyd
+    devenv
     boxes
     nitch
     pfetch-rs
+    ratty
     pywalfox-native
     microfetch
     gpu-screen-recorder
@@ -343,7 +345,7 @@
       enable = true;
       wlr.enable = false;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
+        #xdg-desktop-portal-hyprland
       ];
       config = {
         niri = {

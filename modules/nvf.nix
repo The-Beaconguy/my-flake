@@ -39,12 +39,8 @@
           lua.enable = true;
           rust = {
             enable = true;
-            extensions.crates-nvim.enable = true;
           };
           clang = {
-            enable = true;
-          };
-          go = {
             enable = true;
           };
           java = {

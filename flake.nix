@@ -8,21 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    pyprland.url = "github:hyprland-community/pyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    #pyprland.url = "github:hyprland-community/pyprland";
     stylix.url = "github:danth/stylix";
     nvf.url = "github:notashelf/nvf";
-
     tempus.url = "github:notashelf/tempus";
-    fine-cmdline = {
-      url = "github:VonHeikemen/fine-cmdline.nvim";
-      flake = false;
-    };
+    go-pray.url = "github:0xzer0x/go-pray";
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
@@ -38,8 +30,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    pyprland,
-    tempus,
     nvf,
     nix-index-database,
     ...
@@ -71,17 +61,16 @@
           inherit username;
           inherit host;
         };
+
         modules = [
           ({pkgs, ...}: {
-            nixpkgs.overlays = [
-            ];
+            nixpkgs.overlays = [];
             environment.systemPackages = [
-              pyprland.packages."${system}".pyprland
               inputs.tempus.packages.${pkgs.stdenv.hostPlatform.system}.default
+              inputs.go-pray.packages.${pkgs.stdenv.hostPlatform.system}.default
             ];
           })
           ./hosts/${host}/config.nix
-          ./hmModules/noctalia/noctalia.nix
           inputs.stylix.nixosModules.stylix
           nix-index-database.nixosModules.default
           home-manager.nixosModules.home-manager

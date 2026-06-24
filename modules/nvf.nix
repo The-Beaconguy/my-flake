@@ -7,6 +7,7 @@
           enable = true;
           setupOpts = {
             logo = "https://raw.githubusercontent.com/IogaMaster/neovim/refs/heads/main/.github/assets/nixvim-dark.webp";
+            enable_line_number = true;
           };
         };
         viAlias = false;
@@ -36,7 +37,6 @@
           python = {
             enable = true;
           };
-          lua.enable = true;
           rust = {
             enable = true;
           };
@@ -121,12 +121,6 @@
 
         comments = {
           comment-nvim.enable = true;
-        };
-        notes = {
-          neorg = {
-            enable = true;
-            treesitter.enable = true;
-          };
         };
       };
     };

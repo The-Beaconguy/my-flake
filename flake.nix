@@ -14,7 +14,7 @@
     tempus.url = "github:notashelf/tempus";
     go-pray.url = "github:0xzer0x/go-pray";
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
@@ -71,6 +71,7 @@
             ];
           })
           ./hosts/${host}/config.nix
+          ./hmModules/noctalia/noctalia.nix
           inputs.stylix.nixosModules.stylix
           nix-index-database.nixosModules.default
           home-manager.nixosModules.home-manager

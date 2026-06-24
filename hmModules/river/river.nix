@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   wayland.windowManager.river = {
-    enable = true;
+    enable = false;
     xwayland.enable = true;
     systemd.enable = true;
     package = pkgs.river;

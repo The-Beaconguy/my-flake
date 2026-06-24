@@ -7,7 +7,6 @@
     ./hypr/hyprland.nix
     ./hypr/pyprland.nix
     ./hypr/hyprpanel.nix
-    ./neovim.nix
     ./niriconfig.nix
     ./obs-studio.nix
     ./vesktop.nix

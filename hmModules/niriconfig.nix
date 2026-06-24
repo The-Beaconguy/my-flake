@@ -92,7 +92,7 @@
     // Noctalia shell settings
     // Set the overview wallpaper on the backdrop.
     layer-rule {
-      match namespace="^noctalia-wallpaper*"
+      match namespace="^noctalia-wallpaper"
       place-within-backdrop true
     }
     // Optionally, disable the workspace shadows in the overview.
@@ -139,8 +139,6 @@
     }
 
     // Settings that influence how windows are positioned and sized.
-    // Find more information on the wiki:
-    // https://yalter.github.io/niri/Configuration:-Layout
     layout {
         // Set transparent workspace background color so you see the backdrop at all times. (Noctalia setting)
         background-color "transparent"
@@ -304,7 +302,7 @@
     // This line starts stuff
     spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE DISPLAY"
     spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP DISPLAY"
-    spawn-at-startup "noctalia-shell"
+    spawn-at-startup "noctalia"
     spawn-sh-at-startup "lxqt-policykit-agent"
     spawn-at-startup "firefox"
 
@@ -416,10 +414,16 @@
 
         // Example: enable rounded corners for all windows.
         // (This example rule is commented out with a "/-" in front.)
-        /-window-rule {
-        geometry-corner-radius 12
-        clip-to-geometry true
+        //
+        window-rule {
+        geometry-corner-radius 20
     }
+        /-window-rule {
+          match app-id="dev.noctalia.Noctalia.Settings"
+          open-floating true
+          default-column-width { fixed 1080; }
+          default-window-height { fixed 920; }
+        }
 
     binds {
         // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -443,7 +447,7 @@
         Mod+S hotkey-overlay-title="take a scrennshoot: screenshootin" { spawn "screenshootin"; }
         Mod+W hotkey-overlay-title="Launch a Web Browser: Firefox" { spawn "firefox"; }
         Mod+T hotkey-overlay-title="Launch a File Manager: Thunar" { spawn "thunar"; }
-        Mod+Shift+O { spawn-sh "noctalia-shell ipc call plugin:show-keys toggle"; }
+        Mod+Shift+O { spawn-sh "noctalia ipc call plugin:show-keys toggle"; }
         Mod+D { spawn "vesktop"; }
         Mod+Shift+W {spawn "web-search";}
         Mod+E {spawn "emopicker9000";}

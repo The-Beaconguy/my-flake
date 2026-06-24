@@ -11,30 +11,17 @@
     imports = [
       inputs.noctalia.homeModules.default
     ];
-
     # configure options
     programs.noctalia-shell = {
       enable = true;
-      colors = lib.mkForce {
-        mPrimary = "#ea9a97";
-        mOnPrimary = "#232136";
-        mSecondary = "#9ccfd8";
-        mOnSecondary = "#232136";
-        mTertiary = "#3e8fb0";
-        mOnTertiary = "#e0def4";
-        mError = "#eb6f92";
-        mOnError = "#232136";
-        mSurface = "#232136";
-        mOnSurface = "#e0def4";
-        mSurfaceVariant = "#393552";
-        mOnSurfaceVariant = "#908caa";
-        mOutline = "#44415a";
-        mShadow = "#232136";
-        mHover = "#56526e";
-        mOnHover = "#e0def4";
-      };
       # mkForce required due to conflicting defaults (1.0 in nix-store vs 1 in noctalia.nix) im sure there is a better way.
       settings = lib.mkForce {
+        # options only for v5
+        #theme = {
+        #  mode = "dark";
+        #  source = "custom";
+        #  custom_pallette = "mytheme";
+        #};
         appLauncher = {
           customLaunchPrefix = "";
           customLaunchPrefixEnabled = false;
@@ -121,6 +108,13 @@
                 hideWhenOff = true;
                 showNumLock = false;
                 showScrollLock = false;
+              }
+              {
+                id = "plugin:tamagotchi";
+                volume = 0;
+                difficulty = 0;
+                showDebug = false;
+                showPercentage = false;
               }
               {
                 id = "plugin:show-keys";
@@ -525,6 +519,7 @@
           wifiDetailsViewMode = "grid";
         };
         wallpaper = {
+          #default.path = "purple-dark--arabic-letters.png";
           directory = "/home/${username}/${flakedir}/hmModules/wallpapers";
           enableMultiMonitorDirectories = false;
           enabled = programoptions.wm == "niri";

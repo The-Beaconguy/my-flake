@@ -40,8 +40,15 @@
           rust = {
             enable = true;
           };
-          clang = {
+          php = {
             enable = true;
+          };
+          clang = {
+            enable = false;
+          };
+          go = {
+            enable = true;
+            lsp.enable = true;
           };
           java = {
             enable = true;
@@ -115,6 +122,7 @@
           fastaction.enable = true;
         };
         utility = {
+          multicursors.enable = true;
           diffview-nvim.enable = true;
           icon-picker.enable = true;
         };

@@ -10,6 +10,7 @@ pkgs.writeShellScriptBin "web-search" ''
      ["🎞️ YouTube"]="https://www.youtube.com/results?search_query="
      ["🦥 Arch Wiki"]="https://wiki.archlinux.org/title/"
      ["🐃 Gentoo Wiki"]="https://wiki.gentoo.org/index.php?title="
+     ["  devenv options"]="https://devenv.sh/search?q="
    )
 
    # List for rofi

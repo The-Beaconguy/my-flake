@@ -18,7 +18,7 @@
 
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages;
     # This is for OBS Virtual Cam Support
     kernelModules = ["v4l2loopback"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
@@ -45,7 +45,6 @@
       mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
-    #plymouth.enable = true; takes like 3 more sec to boot
   };
 
   # Styling Options
@@ -242,15 +241,15 @@
   environment.systemPackages = with pkgs; [
     vim
     asciiquarium-transparent
+    woomer
     ripgrep
     ttyd
     devenv
     boxes
-    nitch
     pfetch-rs
-    ratty
     pywalfox-native
     microfetch
+    circumflex
     gpu-screen-recorder
     evtest
     tree
@@ -267,7 +266,6 @@
     cmatrix
     pipes
     lolcat
-    htop
     brave
     libvirt
     lxqt.lxqt-policykit
@@ -341,9 +339,7 @@
     portal = {
       enable = true;
       wlr.enable = false;
-      extraPortals = with pkgs; [
-        #xdg-desktop-portal-hyprland
-      ];
+      extraPortals = [];
       config = {
         niri = {
           default = ["gnome;gtk"];
@@ -368,14 +364,6 @@
       xkb = {
         layout = "${programoptions.keyboardLayout}";
         variant = "";
-      };
-    };
-    greetd = {
-      enable = false;
-      settings = {
-        default_session = {
-          user = username;
-        };
       };
     };
     smartd = {

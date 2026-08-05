@@ -92,7 +92,7 @@
     // Noctalia shell settings
     // Set the overview wallpaper on the backdrop.
     layer-rule {
-      match namespace="^noctalia-wallpaper"
+      match namespace="^noctalia-wallpaper*"
       place-within-backdrop true
     }
     // Optionally, disable the workspace shadows in the overview.
@@ -302,7 +302,7 @@
     // This line starts stuff
     spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE DISPLAY"
     spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP DISPLAY"
-    spawn-at-startup "noctalia"
+    spawn-at-startup "noctalia-shell"
     spawn-sh-at-startup "lxqt-policykit-agent"
     spawn-at-startup "firefox"
 
@@ -324,6 +324,11 @@
         match title="Firefox"
         open-on-workspace "ب"
         open-maximized true
+        }
+        window-rule {
+        match title="woomer"
+        open-floating true
+        open-fullscreen false
         }
         window-rule {
          match app-id=r"org.kde.kdeconnect.daemon" // ID of presentation pointer overlay
@@ -447,11 +452,12 @@
         Mod+S hotkey-overlay-title="take a scrennshoot: screenshootin" { spawn "screenshootin"; }
         Mod+W hotkey-overlay-title="Launch a Web Browser: Firefox" { spawn "firefox"; }
         Mod+T hotkey-overlay-title="Launch a File Manager: Thunar" { spawn "thunar"; }
-        Mod+Shift+O { spawn-sh "noctalia ipc call plugin:show-keys toggle"; }
+        Mod+Shift+O { spawn-sh "noctalia-shell ipc call plugin:show-keys toggle"; }
         Mod+D { spawn "vesktop"; }
-        Mod+Shift+W {spawn "web-search";}
-        Mod+E {spawn "emopicker9000";}
-        Mod+F13 {spawn "brave";}
+        Mod+Shift+W { spawn "web-search"; }
+        Mod+E { spawn "emopicker9000" ;}
+        Mod+Z { spawn-sh "woomer" ; }
+        Mod+F13 { spawn "brave" ; }
 
         // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
         // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

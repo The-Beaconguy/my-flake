@@ -46,7 +46,6 @@
       magicOrExtension = ''\x7fELF....AI\x02'';
     };
   };
-
   # Styling Options
   stylix = {
     enable = true;
@@ -233,7 +232,6 @@
     #allowBroken = true;
     allowUnfree = true;
   };
-
   users = {
     mutableUsers = true;
   };
@@ -241,12 +239,12 @@
   environment.systemPackages = with pkgs; [
     vim
     asciiquarium-transparent
+    jetbrains.idea
     woomer
     ripgrep
     ttyd
     devenv
     boxes
-    pfetch-rs
     pywalfox-native
     microfetch
     circumflex
@@ -255,13 +253,13 @@
     tree
     cava
     cbonsai
-    kdePackages.qttools # For noctalia-kde-connect
+    #kdePackages.qttools # For noctalia-kde-connect, only v4
+    glib.bin # Fro noctalia connect phone, uses gdbus i think. Will delete the above if this works.
     wget
     libreoffice-qt6-fresh
     killall
     eza
     git
-    gparted
     lazygit
     cmatrix
     pipes
@@ -289,7 +287,6 @@
     bat
     pkg-config
     meson
-    hyprpicker
     ninja
     brightnessctl
     virt-viewer
@@ -299,10 +296,8 @@
     yad
     inxi
     playerctl
-    nh
     nixfmt
     libvirt
-    awww
     grim
     slurp
     file-roller

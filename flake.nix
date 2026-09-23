@@ -14,6 +14,10 @@
     tempus.url = "github:notashelf/tempus";
     go-pray.url = "github:0xzer0x/go-pray";
     noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia-v4 = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -25,12 +29,20 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    go-workouts = {
+      url = "gitlab:mike-night/Go-workouts";
+    };
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     nvf,
+    mangowm,
     nix-index-database,
     ...
   } @ inputs: let
@@ -68,12 +80,15 @@
             environment.systemPackages = [
               inputs.tempus.packages.${pkgs.stdenv.hostPlatform.system}.default
               inputs.go-pray.packages.${pkgs.stdenv.hostPlatform.system}.default
+              #inputs.go-workouts.packages.${pkgs.stdenv.hostPlatform.system}.default
             ];
           })
           ./hosts/${host}/config.nix
+          ./hmModules/noctalia/noctalia-v4.nix
           ./hmModules/noctalia/noctalia.nix
           inputs.stylix.nixosModules.stylix
           nix-index-database.nixosModules.default
+          mangowm.nixosModules.mango
           home-manager.nixosModules.home-manager
           nvf.nixosModules.default
           {

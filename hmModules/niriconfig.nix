@@ -137,6 +137,11 @@
         // automatically.
         //position x=1280 y=0
     }
+    output "HDMI-A-1" {
+          scale 1
+    }
+
+
 
     // Settings that influence how windows are positioned and sized.
     layout {
@@ -327,8 +332,6 @@
         }
         window-rule {
         match title="woomer"
-        open-floating true
-        open-fullscreen false
         }
         window-rule {
          match app-id=r"org.kde.kdeconnect.daemon" // ID of presentation pointer overlay
@@ -456,8 +459,8 @@
         Mod+D { spawn "vesktop"; }
         Mod+Shift+W { spawn "web-search"; }
         Mod+E { spawn "emopicker9000" ;}
-        Mod+Z { spawn-sh "woomer" ; }
-        Mod+F13 { spawn "brave" ; }
+        Mod+Z { spawn-sh "woomer" ;}
+        Mod+F13 { spawn "brave" ;}
 
         // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
         // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./emoji.nix
     ./emacs/emacs.nix

@@ -44,11 +44,13 @@
             enable = true;
           };
           clang = {
-            enable = false;
+            enable = true;
           };
           go = {
             enable = true;
-            lsp.enable = true;
+          };
+          odin = {
+            enable = true;
           };
           java = {
             enable = true;

@@ -1,6 +1,5 @@
 {
   lib,
-  config,
   host,
   ...
 }: {
@@ -9,10 +8,12 @@
     ./editors/code-editors.nix
     ./amd-drivers.nix
     ./nvidia-drivers.nix
+    ./nh.nix
     ./nvf.nix
     ./nvidia-prime-drivers.nix
     ./intel-drivers.nix
     ./karakeep.nix
+    ./mangowm.nix
     ./niri.nix
     ./vm-guest-services.nix
     ./local-hardware-clock.nix

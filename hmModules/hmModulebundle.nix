@@ -1,7 +1,7 @@
 {
   imports = [
     ./emoji.nix
-    ./emacs/emacs.nix
+    #    ./emacs/emacs.nix
     ./shells/sh.nix
     ./fastfetch
     ./hypr/hyprland.nix

@@ -307,7 +307,7 @@
     // This line starts stuff
     spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE DISPLAY"
     spawn-sh-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP DISPLAY"
-    spawn-at-startup "noctalia-shell"
+    spawn-at-startup "noctalia"
     spawn-sh-at-startup "lxqt-policykit-agent"
     spawn-at-startup "firefox"
 
@@ -331,7 +331,8 @@
         open-maximized true
         }
         window-rule {
-        match title="woomer"
+        match title="rofi"
+        open-floating true
         }
         window-rule {
          match app-id=r"org.kde.kdeconnect.daemon" // ID of presentation pointer overlay
@@ -455,11 +456,15 @@
         Mod+S hotkey-overlay-title="take a scrennshoot: screenshootin" { spawn "screenshootin"; }
         Mod+W hotkey-overlay-title="Launch a Web Browser: Firefox" { spawn "firefox"; }
         Mod+T hotkey-overlay-title="Launch a File Manager: Thunar" { spawn "thunar"; }
-        Mod+Shift+O { spawn-sh "noctalia-shell ipc call plugin:show-keys toggle"; }
+        Mod+Shift+O { spawn-sh "noctalia msg plugin h-jangra/keyviz:keylistener all toggle"; }
         Mod+D { spawn "vesktop"; }
         Mod+Shift+W { spawn "web-search"; }
         Mod+E { spawn "emopicker9000" ;}
-        Mod+Z { spawn-sh "woomer" ;}
+        // doing some tests
+        Mod+Z { spawn-sh "./wommer-test/woomer/target/release/woomer" ;}
+        // please dont joke about the scripts name
+        Mod+Shift+D { spawn-sh "~/.config/niri/copy-image-text-to-clipboard.sh" ;}
+        Mod+Shift+A { spawn-sh "~/.config/niri/copy-image-text-to-clipboard-arabic.sh " ;}
         Mod+F13 { spawn "brave" ;}
 
         // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

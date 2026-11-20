@@ -12,7 +12,7 @@
         "networkmanager"
         "wheel"
         "libvirtd"
-        "input" # For evtest
+        "input" # For that Noctalia plugin
         "scanner"
         "lp"
       ];

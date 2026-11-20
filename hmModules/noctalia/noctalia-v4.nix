@@ -13,7 +13,7 @@
     ];
     # configure options
     programs.noctalia-shell = {
-      enable = true;
+      enable = false;
       colors = lib.mkForce {
         mPrimary = "#ea9a97";
         mOnPrimary = "#232136";
@@ -171,7 +171,7 @@
               {
                 id = "Clock";
                 customFont = "";
-                formatHorizontal = "HH:mm ddd, MMM dd";
+                formatHorizontal = "HH:mm:ss ddd, MMM dd";
                 formatVertical = "HH mm - dd MM";
                 clockColor = "secondary";
                 useCustomFont = false;
@@ -358,7 +358,7 @@
         nightLight = {
           autoSchedule = true;
           dayTemp = "6500";
-          enabled = false;
+          enabled = true;
           forced = false;
           manualSunrise = "06:30";
           manualSunset = "18:30";

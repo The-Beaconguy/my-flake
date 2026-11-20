@@ -1,6 +1,6 @@
 # some code is stolen from (Ladas552)
 # https://github.com/Ladas552/Nix-Is-Unbreakable/blob/master/homeModules/vesktop/default.nix
-{host, ...}: {
+{
   programs.vesktop = {
     enable = true;
     settings = {
@@ -17,7 +17,8 @@
       discordBranch = "stable";
     };
     vencord = {
-      useSystem = true;
+      # I get a white screen, this fixes it, but it has some downsides or something, i may reenable it after sometime
+      useSystem = false;
       settings = {
         notifyAboutUpdates = true;
         autoUpdate = true;
@@ -34,6 +35,7 @@
           ClearURLs.enabled = true;
           callTimer.enabled = true;
           ShowHiddenThings.enabled = true;
+          ShowHiddenChannels.enabled = true;
           SilentMessageToggle.enabled = true;
           FriendsSince.enabled = true;
           WhoReacted.enabled = true;

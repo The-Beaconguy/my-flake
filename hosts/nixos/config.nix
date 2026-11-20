@@ -18,7 +18,7 @@
 
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_zen;
     # This is for OBS Virtual Cam Support
     kernelModules = ["v4l2loopback"];
     extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
@@ -238,11 +238,20 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    staruml
+    exiftool
+    #brave-origin
+    #brave-search-cli
+    chromium
     asciiquarium-transparent
     jetbrains.idea
-    woomer
+    #perl5Packages.ImageOCRTesseract
+    tesseract
+    lxqt.screengrab
     ripgrep
     ttyd
+    python3 # For the keyboard noctalia plugin, i hope this goes well.
+    qrencode # For the qrcode noctalia plugin
     devenv
     boxes
     pywalfox-native
@@ -253,10 +262,9 @@
     tree
     cava
     cbonsai
-    #kdePackages.qttools # For noctalia-kde-connect, only v4
-    glib.bin # Fro noctalia connect phone, uses gdbus i think. Will delete the above if this works.
+    glib.bin # For (lol typo lasted so long) noctalia connect phone, uses gdbus i think. Will delete the above if this works.
     wget
-    libreoffice-qt6-fresh
+    #libreoffice-qt6-fresh
     killall
     eza
     git
@@ -264,7 +272,6 @@
     cmatrix
     pipes
     lolcat
-    brave
     libvirt
     lxqt.lxqt-policykit
     lm_sensors
@@ -399,11 +406,16 @@
     rpcbind.enable = false;
     nfs.server.enable = false;
   };
-  systemd.services.flatpak-repo = {
-    path = [pkgs.flatpak];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
+
+  systemd.services = {
+    # should make rebulids faster? saw it from Adumh00man
+    NetworkManager-wait-online.enable = true;
+    flatpak-repo = {
+      path = [pkgs.flatpak];
+      script = ''
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      '';
+    };
   };
   hardware = {
     sane = {

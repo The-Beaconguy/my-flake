@@ -3,6 +3,14 @@
     enable = true;
     settings = {
       vim = {
+        keymaps = [
+          {
+            key = "<M-z>";
+            mode = ["n"];
+            action = "^V$<Esc>";
+            silent = true;
+          }
+        ];
         presence.neocord = {
           enable = true;
           setupOpts = {
@@ -56,7 +64,7 @@
             enable = true;
             lsp = {
               enable = true;
-              servers = ["jdt-language-server"];
+              servers = ["jls"];
             };
           };
         };
@@ -120,7 +128,8 @@
           borders.enable = true;
           colorizer.enable = true;
           illuminate.enable = true;
-          noice.enable = true;
+          # causes issues or whatever, also everything works faster now.
+          # noice.enable = true;
           fastaction.enable = true;
         };
         utility = {

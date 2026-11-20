@@ -7,10 +7,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland.url = "github:hyprwm/Hyprland";
     #pyprland.url = "github:hyprland-community/pyprland";
     stylix.url = "github:danth/stylix";
     nvf.url = "github:notashelf/nvf";
+    woomer.url = "github:coffeeispower/woomer";
     tempus.url = "github:notashelf/tempus";
     go-pray.url = "github:0xzer0x/go-pray";
     noctalia = {
@@ -78,6 +79,7 @@
           ({pkgs, ...}: {
             nixpkgs.overlays = [];
             environment.systemPackages = [
+              inputs.woomer.packages.${system}.default
               inputs.tempus.packages.${pkgs.stdenv.hostPlatform.system}.default
               inputs.go-pray.packages.${pkgs.stdenv.hostPlatform.system}.default
               #inputs.go-workouts.packages.${pkgs.stdenv.hostPlatform.system}.default
